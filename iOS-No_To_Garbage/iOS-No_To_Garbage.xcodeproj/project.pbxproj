@@ -14,6 +14,11 @@
 		84D8E4CA253CD00B00E0398A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84D8E4C9253CD00B00E0398A /* Assets.xcassets */; };
 		84D8E4CD253CD00B00E0398A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84D8E4CC253CD00B00E0398A /* Preview Assets.xcassets */; };
 		84D8E4D0253CD00B00E0398A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D8E4CE253CD00B00E0398A /* LaunchScreen.storyboard */; };
+		84D8E4DC253CD48B00E0398A /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8E4DB253CD48B00E0398A /* MapView.swift */; };
+		84D8E4E0253CD79B00E0398A /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8E4DF253CD79B00E0398A /* CircleImage.swift */; };
+		84D8E4E3253CDAAA00E0398A /* GarbageDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8E4E2253CDAAA00E0398A /* GarbageDetail.swift */; };
+		84D8E4E6253CDC5900E0398A /* GarbageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8E4E5253CDC5900E0398A /* GarbageRow.swift */; };
+		84D8E4E9253CE9FD00E0398A /* GarbageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8E4E8253CE9FD00E0398A /* GarbageList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,11 @@
 		84D8E4CC253CD00B00E0398A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		84D8E4CF253CD00B00E0398A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84D8E4D1253CD00B00E0398A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84D8E4DB253CD48B00E0398A /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		84D8E4DF253CD79B00E0398A /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		84D8E4E2253CDAAA00E0398A /* GarbageDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarbageDetail.swift; sourceTree = "<group>"; };
+		84D8E4E5253CDC5900E0398A /* GarbageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarbageRow.swift; sourceTree = "<group>"; };
+		84D8E4E8253CE9FD00E0398A /* GarbageList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarbageList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +68,7 @@
 		84D8E4BF253CD00A00E0398A /* iOS-No_To_Garbage */ = {
 			isa = PBXGroup;
 			children = (
+				84D8E4DA253CD45800E0398A /* Supporting Views */,
 				84D8E4C0253CD00A00E0398A /* AppDelegate.swift */,
 				84D8E4C2253CD00A00E0398A /* SceneDelegate.swift */,
 				84D8E4C4253CD00A00E0398A /* ContentView.swift */,
@@ -66,6 +77,9 @@
 				84D8E4D1253CD00B00E0398A /* Info.plist */,
 				84D8E4C6253CD00A00E0398A /* iOS_No_To_Garbage.xcdatamodeld */,
 				84D8E4CB253CD00B00E0398A /* Preview Content */,
+				84D8E4E2253CDAAA00E0398A /* GarbageDetail.swift */,
+				84D8E4E5253CDC5900E0398A /* GarbageRow.swift */,
+				84D8E4E8253CE9FD00E0398A /* GarbageList.swift */,
 			);
 			path = "iOS-No_To_Garbage";
 			sourceTree = "<group>";
@@ -76,6 +90,15 @@
 				84D8E4CC253CD00B00E0398A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		84D8E4DA253CD45800E0398A /* Supporting Views */ = {
+			isa = PBXGroup;
+			children = (
+				84D8E4DB253CD48B00E0398A /* MapView.swift */,
+				84D8E4DF253CD79B00E0398A /* CircleImage.swift */,
+			);
+			path = "Supporting Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,8 +173,13 @@
 			files = (
 				84D8E4C1253CD00A00E0398A /* AppDelegate.swift in Sources */,
 				84D8E4C3253CD00A00E0398A /* SceneDelegate.swift in Sources */,
+				84D8E4DC253CD48B00E0398A /* MapView.swift in Sources */,
 				84D8E4C5253CD00A00E0398A /* ContentView.swift in Sources */,
+				84D8E4E6253CDC5900E0398A /* GarbageRow.swift in Sources */,
+				84D8E4E3253CDAAA00E0398A /* GarbageDetail.swift in Sources */,
 				84D8E4C8253CD00A00E0398A /* iOS_No_To_Garbage.xcdatamodeld in Sources */,
+				84D8E4E9253CE9FD00E0398A /* GarbageList.swift in Sources */,
+				84D8E4E0253CD79B00E0398A /* CircleImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,7 +327,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "spiridonov.iOS-No-To-Garbage";
+				PRODUCT_BUNDLE_IDENTIFIER = "spiridonov.IOS-No-To-Garbag";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -320,7 +348,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "spiridonov.iOS-No-To-Garbage";
+				PRODUCT_BUNDLE_IDENTIFIER = "spiridonov.IOS-No-To-Garbag";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
