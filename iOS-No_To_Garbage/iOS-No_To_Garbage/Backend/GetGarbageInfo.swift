@@ -11,21 +11,21 @@ import Firebase
 import FirebaseDatabase
 
 class GetGarbageInfo {
-    var result = ""
-    var path = ""
-    func getInfo(path:String) -> String{
-        let rootReference = Database.database().reference()
-        let garbageReference = rootReference.child("GarbageInformation").child(path).child("body")
+    
+    // add completion, remove return type
+    func getInfo(path: String, completion: @escaping (String) -> Void) {
+        var result = ""
+        var realPath = path
+        if path == "Бутылки "{
+            realPath = "Бутылки"
+        }
         
+        let rootReference = Database.database().reference()
+        let garbageReference = rootReference.child("GarbageInformation").child(realPath).child("body")
         
         garbageReference.observeSingleEvent(of: .value) { (DataSnapshot) in
-            self.result = DataSnapshot.value as? String ?? "0"
-            
-            
-        }
-        return result
+            result = DataSnapshot.value as? String ?? "0"
+            completion(result)
+        }   
     }
-    
- 
-    
 }
