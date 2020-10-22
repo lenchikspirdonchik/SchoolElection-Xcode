@@ -13,11 +13,13 @@ struct GarbageDetail: View {
     
     let garbage:String
     let garbageInfo = GetGarbageInfo()
+    let mapInfo = GetMapInfo()
     @State var result = "Загрузка. Пожалуйста подожди("
+    @State var result2 = "Заг подожди("
     var body: some View {
 
         let coordinate = [CLLocationCoordinate2D(latitude: 60.013219, longitude: 30.275225)]
-        let hint = ["hint 0"]
+        var hint = [""]
         
         let coor:[String : CLLocationCoordinate2D] = ["hint 0" : CLLocationCoordinate2D(latitude: 60.013219, longitude: 30.275225)]
         
@@ -29,6 +31,10 @@ struct GarbageDetail: View {
             MapView(coordinate: coordinate, hint: hint)
                 .edgesIgnoringSafeArea(.top)
                 .frame(height: 450)
+                .onAppear(){
+                   mapInfo.getMap(path: garbage) { ([String : CLLocationCoordinate2D]) in   }
+                    
+                }
             
             CircleImage(image: Image(photo[garbage]!))
                 .offset(x: 0, y: -60)
@@ -39,6 +45,18 @@ struct GarbageDetail: View {
                 Text(garbage)
                     .font(.title)
                 
+                
+               Text (result2)
+                    .onAppear{
+                        mapInfo.getNumber(path: garbage) { (number) in
+                            mapInfo.getHint(path: garbage, trueMapNumber: number) { (resArr) in
+                                print("hintarr2 \(resArr)")
+                                result2 = resArr[1]
+                            }
+                        }
+                        
+                        
+                    }
                 
                 Text(result)
                     .font(.subheadline)

@@ -11,8 +11,6 @@ import Firebase
 import FirebaseDatabase
 
 class GetGarbageInfo {
-    
-    // add completion, remove return type
     func getInfo(path: String, completion: @escaping (String) -> Void) {
         var result = ""
         var realPath = path
