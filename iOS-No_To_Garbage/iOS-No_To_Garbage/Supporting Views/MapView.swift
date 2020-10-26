@@ -25,7 +25,7 @@ struct MapView: UIViewRepresentable {
             print(coordinate)
             let annotation = MKPointAnnotation()
             annotation.title = hint[i]
-            annotation.subtitle = ""
+            annotation.subtitle = hint[i]
             annotation.coordinate = coordinate[i]
             uiView.addAnnotation(annotation)
         }
