@@ -16,13 +16,11 @@ struct GarbageDetail: View {
     let mapInfo = GetMapInfo()
     @State var result = "Загрузка. Пожалуйста подожди("
     @State var result2 = "Заг подожди("
+    @State var coordinate = [CLLocationCoordinate2D(latitude: 0.00, longitude: 0.00)]
+    @State var hint = ["загрузка"]
     var body: some View {
 
-        let coordinate = [CLLocationCoordinate2D(latitude: 60.013219, longitude: 30.275225)]
-        var hint = [""]
-        
-        let coor:[String : CLLocationCoordinate2D] = ["hint 0" : CLLocationCoordinate2D(latitude: 60.013219, longitude: 30.275225)]
-        
+       
         let photo:[String : String] = [ "Батарейки" : "battery" , "Бумага" : "paper" , "Техника" : "technic" , "Бутылки" : "kitchenbottles", "Бутылки " : "bathbottles" , "Одежда в плохом состоянии" : "badclothes" , "Одежда в хорошем состоянии" : "goodclothes" , "Стеклянные банки" : "jars" , "Контейнеры" : "containers" , "Коробки" : "box"]
         
         
@@ -31,10 +29,7 @@ struct GarbageDetail: View {
             MapView(coordinate: coordinate, hint: hint)
                 .edgesIgnoringSafeArea(.top)
                 .frame(height: 450)
-                .onAppear(){
-                   mapInfo.getMap(path: garbage) { ([String : CLLocationCoordinate2D]) in   }
-                    
-                }
+                
             
             CircleImage(image: Image(photo[garbage]!))
                 .offset(x: 0, y: -60)
@@ -45,18 +40,6 @@ struct GarbageDetail: View {
                 Text(garbage)
                     .font(.title)
                 
-                
-               Text (result2)
-                    .onAppear{
-                        mapInfo.getNumber(path: garbage) { (number) in
-                            mapInfo.getHint(path: garbage, trueMapNumber: number) { (resArr) in
-                                print("hintarr2 \(resArr)")
-                                result2 = resArr[1]
-                            }
-                        }
-                        
-                        
-                    }
                 
                 Text(result)
                     .font(.subheadline)
@@ -72,6 +55,17 @@ struct GarbageDetail: View {
             
             Spacer()
         }.padding(.top, -20)
+        .onAppear(){
+            mapInfo.getNumber(path: garbage) { (number) in
+                mapInfo.getHint(path: garbage, trueMapNumber: number) { (resArr) in
+                    hint = resArr
+                }
+                mapInfo.getMap(path: garbage, trueMapNumber: number) { (pointArr) in
+                    coordinate = pointArr
+                }
+                
+            }
+        }
         
         
     }

@@ -17,14 +17,19 @@ struct MapView: UIViewRepresentable {
     
     func updateUIView(_ uiView: MKMapView, context: Context) {
         let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
-        let region = MKCoordinateRegion(center: coordinate[0], span: span)
+        let region = MKCoordinateRegion(center: coordinate[coordinate.count-1], span: span)
         uiView.setRegion(region, animated: true)
+        for i in 0...coordinate.count-1{
+            print(coordinate.count)
+            print(hint)
+            print(coordinate)
+            let annotation = MKPointAnnotation()
+            annotation.title = hint[i]
+            annotation.subtitle = ""
+            annotation.coordinate = coordinate[i]
+            uiView.addAnnotation(annotation)
+        }
         
-        let annotation = MKPointAnnotation()
-        annotation.title = hint[0]
-        annotation.subtitle = "One day I'll go here..."
-        annotation.coordinate = coordinate[0]
-        uiView.addAnnotation(annotation)
         
     }
 }
