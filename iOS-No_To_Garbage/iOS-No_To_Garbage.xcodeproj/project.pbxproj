@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,6 +22,9 @@
 		84F85547253DDB1D0037E5D0 /* GetMapInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F85546253DDB1D0037E5D0 /* GetMapInfo.swift */; };
 		84F8554B253DDB2D0037E5D0 /* GetGarbageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F8554A253DDB2D0037E5D0 /* GetGarbageInfo.swift */; };
 		84F8554E253DDE290037E5D0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84F8554D253DDE290037E5D0 /* GoogleService-Info.plist */; };
+		84FCEBA42548B26100A6564B /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FCEBA32548B26100A6564B /* CategoryRow.swift */; };
+		84FCEBA72548B80E00A6564B /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FCEBA62548B80E00A6564B /* Home.swift */; };
+		84FCEBB02548BEFD00A6564B /* ProfileHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FCEBAF2548BEFD00A6564B /* ProfileHost.swift */; };
 		E5921D452514D54D955831EA /* Pods_iOS_No_To_Garbage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A468EAEBA5D77A9CFDF6ED8D /* Pods_iOS_No_To_Garbage.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +48,9 @@
 		84F85546253DDB1D0037E5D0 /* GetMapInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMapInfo.swift; sourceTree = "<group>"; };
 		84F8554A253DDB2D0037E5D0 /* GetGarbageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGarbageInfo.swift; sourceTree = "<group>"; };
 		84F8554D253DDE290037E5D0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		84FCEBA32548B26100A6564B /* CategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
+		84FCEBA62548B80E00A6564B /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		84FCEBAF2548BEFD00A6564B /* ProfileHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHost.swift; sourceTree = "<group>"; };
 		A468EAEBA5D77A9CFDF6ED8D /* Pods_iOS_No_To_Garbage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_No_To_Garbage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -89,6 +95,7 @@
 		84D8E4BF253CD00A00E0398A /* iOS-No_To_Garbage */ = {
 			isa = PBXGroup;
 			children = (
+				84FCEBA92548BED700A6564B /* Profile */,
 				84F8554D253DDE290037E5D0 /* GoogleService-Info.plist */,
 				84F85545253DDAF90037E5D0 /* Backend */,
 				84D8E4DA253CD45800E0398A /* Supporting Views */,
@@ -103,6 +110,8 @@
 				84D8E4E2253CDAAA00E0398A /* GarbageDetail.swift */,
 				84D8E4E5253CDC5900E0398A /* GarbageRow.swift */,
 				84D8E4E8253CE9FD00E0398A /* GarbageList.swift */,
+				84FCEBA32548B26100A6564B /* CategoryRow.swift */,
+				84FCEBA62548B80E00A6564B /* Home.swift */,
 			);
 			path = "iOS-No_To_Garbage";
 			sourceTree = "<group>";
@@ -133,13 +142,20 @@
 			path = Backend;
 			sourceTree = "<group>";
 		};
+		84FCEBA92548BED700A6564B /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				84FCEBAF2548BEFD00A6564B /* ProfileHost.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		9EAB02E1E1F56A30BB558FC6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				0ADE1C54C043E2A894214567 /* Pods-iOS-No_To_Garbage.debug.xcconfig */,
 				668BEED6F82631ACA65182CB /* Pods-iOS-No_To_Garbage.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -264,10 +280,13 @@
 				84D8E4C5253CD00A00E0398A /* ContentView.swift in Sources */,
 				84D8E4E6253CDC5900E0398A /* GarbageRow.swift in Sources */,
 				84D8E4E3253CDAAA00E0398A /* GarbageDetail.swift in Sources */,
+				84FCEBA72548B80E00A6564B /* Home.swift in Sources */,
 				84F8554B253DDB2D0037E5D0 /* GetGarbageInfo.swift in Sources */,
 				84D8E4C8253CD00A00E0398A /* iOS_No_To_Garbage.xcdatamodeld in Sources */,
+				84FCEBB02548BEFD00A6564B /* ProfileHost.swift in Sources */,
 				84D8E4E9253CE9FD00E0398A /* GarbageList.swift in Sources */,
 				84D8E4E0253CD79B00E0398A /* CircleImage.swift in Sources */,
+				84FCEBA42548B26100A6564B /* CategoryRow.swift in Sources */,
 				84F85547253DDB1D0037E5D0 /* GetMapInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

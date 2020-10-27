@@ -10,19 +10,20 @@ import SwiftUI
 struct GarbageList: View {
     var body: some View {
         let photo:[String] = ["Батарейки", "Бумага", "Техника", "Бутылки", "Бутылки ", "Одежда в плохом состоянии", "Одежда в хорошем состоянии", "Стеклянные банки", "Контейнеры", "Коробки"]
+    
         NavigationView{
-        List {
-                      
-            ForEach(photo, id: \.self) { index in
+            List{
+                ForEach(photo, id: \.self) { index in
                     NavigationLink(
                         destination: GarbageDetail(garbage: index)
                     ) {
                         GarbageRow(garbage: index)
                     }
-                
-            }
-        }
-        .navigationBarTitle(Text("Мусор"))
+                    
+                }
+            
+           
+            }.navigationBarTitle(Text("Мусор"))
         }
         
     }
