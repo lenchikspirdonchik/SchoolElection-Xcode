@@ -37,6 +37,10 @@ struct CategoryHome: View {
                 NavigationLink( destination: GarbageList()) {
                     Text("Посмотреть все")
                 }
+                
+                NavigationLink( destination: SignIn()) {
+                    Text("Войти в личный кабинет")
+                }
     
             }
             .navigationBarTitle(Text("Интересное"))

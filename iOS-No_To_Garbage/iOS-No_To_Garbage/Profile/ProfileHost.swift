@@ -6,11 +6,32 @@
 //
 
 import SwiftUI
-
+import FirebaseAuth
 struct ProfileHost: View {
+    @State var email = "Загрузка"
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(email)
+            .onAppear(){
+                email = Auth.auth().currentUser?.email ?? "Вы еще не вошли. Войдите"
+        
+            }
+        Button("Выйти") {
+            let firebaseAuth = Auth.auth()
+            do {
+                try firebaseAuth.signOut()
+                ProfileHost()
+            } catch let signOutError as NSError {
+                print ("Error signing out: %@", signOutError)
+            }
+        }
     }
+    
+    
+   /* func currUser() -> User {
+        let user = Auth.auth().currentUser!
+        print(user.email ?? "shit")
+        return user
+    }*/
 }
 
 struct ProfileHost_Previews: PreviewProvider {
