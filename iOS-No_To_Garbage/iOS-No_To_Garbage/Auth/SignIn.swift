@@ -16,7 +16,7 @@ struct SignIn: View {
     var body: some View {
         
 
-            VStack(alignment: .leading) {
+            ScrollView {
                 Text("Войдите в личный кабинет, чтобы получить доступ ко многим полезным вещам")
                     .padding(.bottom, 60)
                 

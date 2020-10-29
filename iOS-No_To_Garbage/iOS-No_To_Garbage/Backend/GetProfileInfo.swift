@@ -6,3 +6,20 @@
 //
 
 import Foundation
+import FirebaseDatabase
+
+class GetProfileInfo {
+    
+    func getinfo(uid:String, completion: @escaping (String) -> Void) {
+        let rootReference = Database.database().reference()
+            let nameReference = rootReference.child("Users").child(uid).child("Name")
+            nameReference.observeSingleEvent(of: .value) { (DataSnapshot) in
+                let name = DataSnapshot.value as! String
+                completion(name)
+        }
+    }
+    
+    
+    
+    
+}

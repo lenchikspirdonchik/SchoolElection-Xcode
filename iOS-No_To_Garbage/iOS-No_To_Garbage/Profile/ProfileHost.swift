@@ -8,30 +8,53 @@
 import SwiftUI
 import FirebaseAuth
 struct ProfileHost: View {
-    @State var email = "Загрузка"
+    @State var name = "Загрузка"
+    let database = GetProfileInfo()
     var body: some View {
-        Text(email)
-            .onAppear(){
-                email = Auth.auth().currentUser?.email ?? "Вы еще не вошли. Войдите"
-        
+        let user = currUser()
+        if (user != nil){
+            
+            Text(name).onAppear(){
+                database.getinfo(uid: user!.uid) { result in
+                    let email = user?.email
+                    name = "Добрый день, \(result).\nВаша почта: \(email ?? "")"
+                }
             }
-        Button("Выйти") {
-            let firebaseAuth = Auth.auth()
-            do {
-                try firebaseAuth.signOut()
-                ProfileHost()
-            } catch let signOutError as NSError {
-                print ("Error signing out: %@", signOutError)
+            
+        
+            Button("Выйти") {
+                let firebaseAuth = Auth.auth()
+                do {
+                    try firebaseAuth.signOut()
+                    
+                } catch let signOutError as NSError {
+                    print ("Error signing out: %@", signOutError)
+                }
+            }.padding(.top, 30)
+            
+        }
+        
+        
+        
+        else{
+            Text("Вы еще не вошли")
+            NavigationView{
+                
+                NavigationLink(
+                    destination: SignIn(),
+                    label: {
+                        Text("Войти")
+                    })
             }
         }
+        
     }
     
     
-   /* func currUser() -> User {
-        let user = Auth.auth().currentUser!
-        print(user.email ?? "shit")
+    func currUser() -> User? {
+        let user = Auth.auth().currentUser
         return user
-    }*/
+    }
 }
 
 struct ProfileHost_Previews: PreviewProvider {
