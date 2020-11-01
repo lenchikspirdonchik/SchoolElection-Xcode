@@ -12,44 +12,81 @@ struct SignIn: View {
     @State private var password = ""
     @State private var hoho = ""
     
-
+    
     var body: some View {
         
-
-            ScrollView {
-                Text("Войдите в личный кабинет, чтобы получить доступ ко многим полезным вещам")
-                    .padding(.bottom, 60)
+        
+        ScrollView {
+            Text("Войдите в личный кабинет, чтобы получить доступ ко многим полезным вещам")
+                .padding(.bottom, 60)
+            
+            
+            HStack {
+                Image("person.circle.fill")
+                    .imageScale(.large)
+                    .padding(.leading)
                 
-                CustomStyledTextField(
-                    text: $email, placeholder: "Введите почту", symbolName: "person.circle.fill"
-                )
-                
-                
-                
-                CustomStyledTextField(
-                    text: $password, placeholder: "Введите пароль", symbolName: "person.circle.fill"
-                ).padding(.top, 16)
-                
-                CustomStyledButton(title: "Войти", action: {
-                    Sign().sign(email: email, password: password)
-                    
-                })
-                .disabled(email.isEmpty)
-                .padding(.top, 16)
-                
-                Button("Еще нет аккаунта? Зарегистрируйтесь!"){
-                    
-                }.accentColor(.gray)
-                .padding(.top,  30)
-                
-                
-                Spacer()
+                TextField("Введите почту", text: $email)
+                    .padding(.vertical)
+                    .accentColor(.orange)
+                    .autocapitalization(.none)
+                    .keyboardType(.emailAddress)
+                    .textContentType(.emailAddress)
             }
-            .padding()
-            .navigationBarTitle("Вход")
-    }
-    }
+            .background(
+                RoundedRectangle(cornerRadius: 16.0, style: .circular)
+                    .foregroundColor(Color(.secondarySystemFill)))
+            
+            
+            HStack {
+                Image("person.circle.fill")
+                    .imageScale(.large)
+                    .padding(.leading)
+                
+                TextField("Введите пароль", text: $password)
+                    .padding(.vertical)
+                    .accentColor(.orange)
+                    .autocapitalization(.none)
+                    .keyboardType(.default)
+                    .textContentType(.password)
+            }
+            .background(
+                RoundedRectangle(cornerRadius: 16.0, style: .circular)
+                    .foregroundColor(Color(.secondarySystemFill)))
+            
+            
+      
+            CustomStyledButton(title: "Войти", action: {
+                
+                Sign().sign(email: email, password: password)
+                Alert(title: Text("Вход в личный кабинет"), message: Text("Вы успешно вошли!"),primaryButton: .default(Text ("Ура")), secondaryButton:  .default(Text("Попробуем еще раз")))
+                
+               
+                
+            })
+            .disabled(email.isEmpty)
+            .padding(.top, 16)
+            
+            
+            
+            
+                            VStack {
+                    NavigationLink(destination: GarbageList()) {
+                        Text("Еще нет аккаунта? Зарегистрируйтесь!")
+                            .frame(alignment: .center)
+                            .foregroundColor(Color.gray)
+                    }
+                }
 
+            
+            
+            
+            Spacer()
+        }
+        .padding()
+        .navigationBarTitle("Вход")
+    }
+}
 
 
 
@@ -119,7 +156,7 @@ class Sign{
         
         return false
     }
-
+    
     func currUser() -> User {
         let user = Auth.auth().currentUser!
         print(user.email ?? "shit")
