@@ -14,12 +14,16 @@ struct SignIn: View {
     
     
     var body: some View {
-        
+        let action: () ->Void = {
+            Sign().sign(email: email, password: password)
+            Alert(title: Text("Вход в личный кабинет"), message: Text("Вы успешно вошли!"),primaryButton: .default(Text ("Ура")), secondaryButton:  .default(Text("Попробуем еще раз")))
+            
+            
+        }
         
         ScrollView {
             Text("Войдите в личный кабинет, чтобы получить доступ ко многим полезным вещам")
-                .padding(.bottom, 60)
-            
+                
             
             HStack {
                 Image("person.circle.fill")
@@ -54,86 +58,38 @@ struct SignIn: View {
                 RoundedRectangle(cornerRadius: 16.0, style: .circular)
                     .foregroundColor(Color(.secondarySystemFill)))
             
-            
-      
-            CustomStyledButton(title: "Войти", action: {
-                
-                Sign().sign(email: email, password: password)
-                Alert(title: Text("Вход в личный кабинет"), message: Text("Вы успешно вошли!"),primaryButton: .default(Text ("Ура")), secondaryButton:  .default(Text("Попробуем еще раз")))
-                
-               
-                
-            })
-            .disabled(email.isEmpty)
-            .padding(.top, 16)
-            
-            
-            
-            
-                            VStack {
-                    NavigationLink(destination: GarbageList()) {
-                        Text("Еще нет аккаунта? Зарегистрируйтесь!")
-                            .frame(alignment: .center)
-                            .foregroundColor(Color.gray)
-                    }
-                }
+
 
             
-            
-            
+            Button(action: action) {
+                HStack {
+                    Spacer()
+                    Text("Войти")
+                        .padding()
+                        .accentColor(.white)
+                    Spacer()
+                }
+            }
+            .background(Color.blue)
+            .cornerRadius(16.0)
+
+                
+                NavigationLink(
+                    destination: SignUp(),
+                    label: {
+                        Text("Еще нет аккаунта? Зарегистрируйтесь")
+                    }).foregroundColor(.gray)
+        
+
             Spacer()
         }
         .padding()
         .navigationBarTitle("Вход")
-    }
-}
-
-
-
-
-struct CustomStyledButton: View {
-    let title: String
-    let action: () -> Void
     
-    var body: some View {
-        Button(action: action) {
-            HStack {
-                Spacer()
-                Text(title)
-                    .padding()
-                    .accentColor(.white)
-                Spacer()
-            }
-        }
-        .background(Color.blue)
-        .cornerRadius(16.0)
     }
-}
-
-
-
-struct CustomStyledTextField: View {
-    @Binding var text: String
-    let placeholder: String
-    let symbolName: String
     
-    var body: some View {
-        HStack {
-            Image(systemName: symbolName)
-                .imageScale(.large)
-                .padding(.leading)
-            
-            TextField(placeholder, text: $text)
-                .padding(.vertical)
-                .accentColor(.orange)
-                .autocapitalization(.none)
-        }
-        .background(
-            RoundedRectangle(cornerRadius: 16.0, style: .circular)
-                .foregroundColor(Color(.secondarySystemFill))
-        )
-    }
 }
+
 
 
 

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		849117A32549D3680008F977 /* GetProfileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849117A22549D3680008F977 /* GetProfileInfo.swift */; };
 		849117A72549D9F30008F977 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849117A62549D9F30008F977 /* SignIn.swift */; };
+		84CA150E255B29FC00E71E9F /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CA150D255B29FC00E71E9F /* SignUp.swift */; };
 		84D8E4C1253CD00A00E0398A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8E4C0253CD00A00E0398A /* AppDelegate.swift */; };
 		84D8E4C3253CD00A00E0398A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8E4C2253CD00A00E0398A /* SceneDelegate.swift */; };
 		84D8E4C5253CD00A00E0398A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8E4C4253CD00A00E0398A /* ContentView.swift */; };
@@ -35,6 +36,7 @@
 		668BEED6F82631ACA65182CB /* Pods-iOS-No_To_Garbage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-No_To_Garbage.release.xcconfig"; path = "Target Support Files/Pods-iOS-No_To_Garbage/Pods-iOS-No_To_Garbage.release.xcconfig"; sourceTree = "<group>"; };
 		849117A22549D3680008F977 /* GetProfileInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProfileInfo.swift; sourceTree = "<group>"; };
 		849117A62549D9F30008F977 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
+		84CA150D255B29FC00E71E9F /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		84D8E4BD253CD00A00E0398A /* iOS-No_To_Garbage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-No_To_Garbage.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84D8E4C0253CD00A00E0398A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84D8E4C2253CD00A00E0398A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				849117A62549D9F30008F977 /* SignIn.swift */,
+				84CA150D255B29FC00E71E9F /* SignUp.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				84FCEBA42548B26100A6564B /* CategoryRow.swift in Sources */,
 				84F85547253DDB1D0037E5D0 /* GetMapInfo.swift in Sources */,
 				849117A72549D9F30008F977 /* SignIn.swift in Sources */,
+				84CA150E255B29FC00E71E9F /* SignUp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +452,7 @@
 				DEVELOPMENT_TEAM = 9Y79MR5277;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "iOS-No_To_Garbage/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -470,6 +475,7 @@
 				DEVELOPMENT_TEAM = 9Y79MR5277;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "iOS-No_To_Garbage/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
