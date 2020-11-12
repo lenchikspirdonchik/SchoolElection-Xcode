@@ -20,7 +20,7 @@ struct SignUp: View {
                 }
             }
             else{
-                Alert(title: Text("Ошибка!"), message: Text("Ваши пароли не совпали"),primaryButton: .default(Text ("ОК")), secondaryButton:  .default(Text("Попробуем еще раз")))
+               
             }
             
         }
@@ -48,7 +48,7 @@ struct SignUp: View {
             
             
             HStack {
-                Image("person.circle.fill")
+                Image("person.circle")
                     .imageScale(.large)
                     .padding(.leading)
                 
@@ -65,7 +65,7 @@ struct SignUp: View {
             
             
             HStack {
-                Image("person.circle.fill")
+                Image("person.circle")
                     .imageScale(.large)
                     .padding(.leading)
                 
@@ -138,8 +138,8 @@ class CreatUser{
             print("error = \(error.debugDescription)")
             if (user != nil){
                 Auth.auth().currentUser?.sendEmailVerification { (error) in }
-               self.createGarbageInDatabase(user: user!)
-                self.saveNameInDatabase(user: user!, name: name)
+               self.createGarbageInDatabase()
+                self.saveNameInDatabase(name: name)
                 
             }
             else {
@@ -150,7 +150,7 @@ class CreatUser{
     }
     
     
-    func createGarbageInDatabase(user:AuthDataResult){
+    func createGarbageInDatabase(){
         print("in createGarbageInDatabase")
         let rootReference = Database.database().reference()
         let user2 = Auth.auth().currentUser
@@ -162,7 +162,7 @@ class CreatUser{
         }
     }
     
-    func saveNameInDatabase(user: AuthDataResult, name:String) {
+    func saveNameInDatabase(name:String) {
         print("in saveNameInDatabase")
         let rootReference = Database.database().reference()
         let user2 = Auth.auth().currentUser

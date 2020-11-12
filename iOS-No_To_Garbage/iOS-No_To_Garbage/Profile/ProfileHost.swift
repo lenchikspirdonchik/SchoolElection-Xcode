@@ -9,8 +9,10 @@ import SwiftUI
 import FirebaseAuth
 struct ProfileHost: View {
     @State var name = "Загрузка"
+    @State var garbage = ""
     let database = GetProfileInfo()
     var body: some View {
+        let category:[String] = ["Батарейки", "Бумага", "Техника", "Бутылки", "Бутылки ", "Одежда в плохом состоянии", "Одежда в хорошем состоянии", "Стеклянные банки", "Контейнеры", "Коробки"]
         let user = currUser()
         if (user != nil){
             
@@ -18,6 +20,13 @@ struct ProfileHost: View {
                 database.getinfo(uid: user!.uid) { result in
                     let email = user?.email
                     name = "Добрый день, \(result).\nВаша почта: \(email ?? "")"
+                }
+            }
+            
+            
+            Text(garbage).onAppear(){
+                database.getGarbage(uid: user!.uid) { result in
+                    garbage = result
                 }
             }
             
