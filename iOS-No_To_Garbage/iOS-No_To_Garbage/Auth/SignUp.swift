@@ -15,7 +15,7 @@ struct SignUp: View {
     var body: some View {
         let action: () ->Void = {
             if password == passwordRepeat {
-                if name != "" {
+                if name.count > 5 {
                     CreatUser().sign(email: email, password: password, name: name)
                 }
             }
@@ -135,13 +135,15 @@ class CreatUser{
     func sign(email:String, password:String, name:String) {
         print("in func sign up")
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+            print("error = \(error.debugDescription)")
             if (user != nil){
                 Auth.auth().currentUser?.sendEmailVerification { (error) in }
-                self.createGarbageInDatabase(user: user!)
-                //self.saveNameInDatabase(user: user!, name: name)
-                let rootReference = Database.database().reference()
-                let nameReference = rootReference.child("Users").child((user?.user.uid)!).child("Name")
-                nameReference.setValue(name)
+               self.createGarbageInDatabase(user: user!)
+                self.saveNameInDatabase(user: user!, name: name)
+                
+            }
+            else {
+                print("error = \(error.debugDescription)")
             }
         }
         
@@ -149,17 +151,22 @@ class CreatUser{
     
     
     func createGarbageInDatabase(user:AuthDataResult){
+        print("in createGarbageInDatabase")
         let rootReference = Database.database().reference()
-        let garbageReference = rootReference.child("Users").child(user.user.uid).child("Garbage")
+        let user2 = Auth.auth().currentUser
+        let garbageReference = rootReference.child("Users").child(user2!.uid).child("Garbage")
         for i in 0...category.count-1{
+            print("in for createGarbageInDatabase. i = \(i)")
             let databaseReference = garbageReference.child(category[i])
             databaseReference.setValue("0")
         }
     }
     
     func saveNameInDatabase(user: AuthDataResult, name:String) {
+        print("in saveNameInDatabase")
         let rootReference = Database.database().reference()
-        let nameReference = rootReference.child("Users").child(user.user.uid).child("Name")
+        let user2 = Auth.auth().currentUser
+        let nameReference = rootReference.child("Users").child(user2!.uid).child("Name")
         nameReference.setValue(name)
     }
     
