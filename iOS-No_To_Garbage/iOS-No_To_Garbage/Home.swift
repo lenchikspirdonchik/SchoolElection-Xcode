@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CategoryHome: View {
     @State var showingProfile = false
-    
+    @State var showAlert = false
     var profileButton: some View {
         Button(action: { self.showingProfile.toggle() }) {
             Image(systemName: "person.crop.circle")
@@ -19,6 +19,10 @@ struct CategoryHome: View {
         }
     }
     var body: some View {
+        
+        
+        
+        
         let mainCategory: [String] = ["Кухня","Ванная", "Гардеробная", "Кабинет"]
         NavigationView {
             List {
@@ -41,6 +45,8 @@ struct CategoryHome: View {
                 NavigationLink( destination: SignIn()) {
                     Text("Войти в личный кабинет")
                 }
+
+         
     
             }
             .navigationBarTitle(Text("Интересное"))
@@ -48,6 +54,7 @@ struct CategoryHome: View {
             .sheet(isPresented: $showingProfile) {
                 ProfileHost()
             }
+
         }
         .padding(.horizontal, -10)
     }

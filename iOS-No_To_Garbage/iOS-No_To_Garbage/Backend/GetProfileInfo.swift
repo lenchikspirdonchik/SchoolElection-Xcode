@@ -9,7 +9,7 @@ import Foundation
 import FirebaseDatabase
 
 class GetProfileInfo {
-    let category:[String] = ["Батарейки", "Бумага", "Техника", "Бутылки", "Бутылки ", "Одежда в плохом состоянии", "Одежда в хорошем состоянии", "Стеклянные банки", "Контейнеры", "Коробки"]
+    let category:[String] = ["Батарейки", "Бумага", "Техника", "Бутылки", "Одежда в плохом состоянии", "Одежда в хорошем состоянии", "Стеклянные банки", "Контейнеры", "Коробки"]
     func getinfo(uid:String, completion: @escaping (String) -> Void) {
         let rootReference = Database.database().reference()
             let nameReference = rootReference.child("Users").child(uid).child("Name")

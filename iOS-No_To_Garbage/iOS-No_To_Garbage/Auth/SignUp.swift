@@ -12,18 +12,11 @@ struct SignUp: View {
     @State private var password = ""
     @State private var passwordRepeat = ""
     @State private var name = ""
+    @State var showAlert = false
+    @State var showGoodAlert = false
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
-        let action: () ->Void = {
-            if password == passwordRepeat {
-                if name.count > 5 {
-                    CreatUser().sign(email: email, password: password, name: name)
-                }
-            }
-            else{
-               
-            }
-            
-        }
+       
         
         ScrollView {
             Text("Зарегистрируйтесь, чтобы получить доступ ко многим полезным вещам")
@@ -69,7 +62,7 @@ struct SignUp: View {
                     .imageScale(.large)
                     .padding(.leading)
                 
-                TextField("Введите пароль", text: $password)
+                TextField("Введите пароль (от 5 символов)", text: $password)
                     .padding(.vertical)
                     .accentColor(.orange)
                     .autocapitalization(.none)
@@ -101,7 +94,13 @@ struct SignUp: View {
             
             
             
-            Button(action: action) {
+            Button(action: {
+                if password == passwordRepeat {
+                    if password.count > 5 && !name.isEmpty{
+                        CreatUser().sign(email: email, password: password, name: name)
+                    }
+                }
+            }) {
                 HStack {
                     Spacer()
                     Text("Зарегистрироваться")
@@ -131,7 +130,7 @@ struct SignUp_Previews: PreviewProvider {
 
 
 class CreatUser{
-    let category:[String] = ["Батарейки", "Бумага", "Техника", "Бутылки", "Бутылки ", "Одежда в плохом состоянии", "Одежда в хорошем состоянии", "Стеклянные банки", "Контейнеры", "Коробки"]
+    let category:[String] = ["Батарейки", "Бумага", "Техника", "Бутылки", "Одежда в плохом состоянии", "Одежда в хорошем состоянии", "Стеклянные банки", "Контейнеры", "Коробки"]
     func sign(email:String, password:String, name:String) {
         print("in func sign up")
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
