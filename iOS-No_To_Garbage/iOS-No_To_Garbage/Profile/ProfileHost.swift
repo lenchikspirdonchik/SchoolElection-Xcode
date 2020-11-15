@@ -11,6 +11,7 @@ struct ProfileHost: View {
     @State var name = "Загрузка"
     @State var garbage = ""
     let database = GetProfileInfo()
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
         let category:[String] = ["Батарейки", "Бумага", "Техника", "Бутылки", "Бутылки ", "Одежда в плохом состоянии", "Одежда в хорошем состоянии", "Стеклянные банки", "Контейнеры", "Коробки"]
         let user = currUser()
@@ -35,9 +36,11 @@ struct ProfileHost: View {
                 let firebaseAuth = Auth.auth()
                 do {
                     try firebaseAuth.signOut()
+                    self.presentationMode.wrappedValue.dismiss()
                     
                 } catch let signOutError as NSError {
                     print ("Error signing out: %@", signOutError)
+                    self.presentationMode.wrappedValue.dismiss()
                 }
             }.padding(.top, 30)
             

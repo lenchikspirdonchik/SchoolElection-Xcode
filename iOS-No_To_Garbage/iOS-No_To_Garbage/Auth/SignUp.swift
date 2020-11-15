@@ -97,7 +97,19 @@ struct SignUp: View {
             Button(action: {
                 if password == passwordRepeat {
                     if password.count > 5 && !name.isEmpty{
-                        CreatUser().sign(email: email, password: password, name: name)
+                        CreatUser().sign(email: email, password: password, name: name){ (istrue) in
+                            if istrue{
+                                showGoodAlert = true
+                            } else{
+                                showGoodAlert = false
+                            }
+                            self.showAlert.toggle()
+                        }
+                    }
+                    else{
+                        showGoodAlert = false
+                    
+                    self.showAlert.toggle()
                     }
                 }
             }) {
@@ -111,7 +123,31 @@ struct SignUp: View {
             }
             .background(Color.blue)
             .cornerRadius(16.0)
-            
+            .alert(isPresented: $showAlert) { () -> Alert in
+                
+                if (showGoodAlert){
+                    let button = Alert.Button.default(Text("OK")) {
+                        print("Вы успешно зарегистрировались!")
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
+                    return Alert(title: Text("Поздравляем!"), message: Text("Вы успешно зарегистрировались!"), dismissButton: button)
+                }else{
+                    
+                    let primaryButton = Alert.Button.cancel(Text("Конечно!")) {
+                        print("primary button pressed")
+                        email = ""
+                        password = ""
+                        passwordRepeat = ""
+                        name = ""
+                        
+                    }
+                    let secondaryButton = Alert.Button.destructive(Text("в следующий раз")) {
+                        print("secondary button pressed")
+                        self.presentationMode.wrappedValue.dismiss()
+                    }
+                    return Alert(title: Text("Произошла ошибка("), message: Text("Повторим еще раз?"), primaryButton: primaryButton, secondaryButton: secondaryButton)
+                }
+            }
             
             
             Spacer()
@@ -131,7 +167,7 @@ struct SignUp_Previews: PreviewProvider {
 
 class CreatUser{
     let category:[String] = ["Батарейки", "Бумага", "Техника", "Бутылки", "Одежда в плохом состоянии", "Одежда в хорошем состоянии", "Стеклянные банки", "Контейнеры", "Коробки"]
-    func sign(email:String, password:String, name:String) {
+    func sign(email:String, password:String, name:String, completion: @escaping (Bool) -> Void) {
         print("in func sign up")
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             print("error = \(error.debugDescription)")
@@ -139,10 +175,11 @@ class CreatUser{
                 Auth.auth().currentUser?.sendEmailVerification { (error) in }
                self.createGarbageInDatabase()
                 self.saveNameInDatabase(name: name)
-                
+                completion(true)
             }
             else {
                 print("error = \(error.debugDescription)")
+                completion(false)
             }
         }
         
