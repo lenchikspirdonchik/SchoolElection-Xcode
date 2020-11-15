@@ -9,29 +9,41 @@ import SwiftUI
 import FirebaseAuth
 struct ProfileHost: View {
     @State var name = "Загрузка"
+    @State var txtEmail = "Загрузка"
     @State var garbage = ""
     let database = GetProfileInfo()
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
-        let category:[String] = ["Батарейки", "Бумага", "Техника", "Бутылки", "Бутылки ", "Одежда в плохом состоянии", "Одежда в хорошем состоянии", "Стеклянные банки", "Контейнеры", "Коробки"]
+        var category = [""]
         let user = currUser()
         if (user != nil){
             
+            
             Text(name).onAppear(){
                 database.getinfo(uid: user!.uid) { result in
+                    name = "Добрый день, \(result)."
+                }
+            }.padding(.all, 20)
+            
+            
+
+            List{
+                
+                Text(txtEmail).onAppear(){
                     let email = user?.email
-                    name = "Добрый день, \(result).\nВаша почта: \(email ?? "")"
+                    txtEmail = "Почта: \(email ?? "")"
                 }
-            }
-            
-            
-            Text(garbage).onAppear(){
+                
+                ForEach(category, id: \.self) { key in
+                    Text(key)
+                }
+            }.onAppear(){
                 database.getGarbage(uid: user!.uid) { result in
-                    garbage = result
+                    category = result
+                    print(category)
                 }
             }
             
-        
             Button("Выйти") {
                 let firebaseAuth = Auth.auth()
                 do {

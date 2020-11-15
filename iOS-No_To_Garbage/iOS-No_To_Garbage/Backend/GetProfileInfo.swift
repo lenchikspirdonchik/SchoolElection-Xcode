@@ -20,15 +20,15 @@ class GetProfileInfo {
     }
     
     
-    func getGarbage(uid:String, completion: @escaping (String) -> Void) {
+    func getGarbage(uid:String, completion: @escaping ([String]) -> Void) {
         let rootReference = Database.database().reference()
-        var garbage = ""
+        var garbage = [""]
         let garbageReference = rootReference.child("Users").child(uid).child("Garbage")
             for i in 0...self.category.count-1{
                 let databaseReference = garbageReference.child(self.category[i])
                 databaseReference.observeSingleEvent(of: .value) { (DataSnapshot) in
                     let count = DataSnapshot.value as! String
-                    garbage = garbage + "\(self.category[i]): \(count)\n"
+                    garbage.append("\(self.category[i]): \(count)")
                     if (i == self.category.count-1){
                         completion(garbage)
                     }
