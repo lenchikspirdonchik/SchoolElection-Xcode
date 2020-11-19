@@ -38,6 +38,12 @@ struct CategoryHome: View {
                 }
                 .listRowInsets(EdgeInsets())
                 
+                
+       CategoryOther()
+        .listRowInsets(EdgeInsets())
+                
+                
+                
                 NavigationLink( destination: GarbageList()) {
                     Text("Посмотреть все")
                 }

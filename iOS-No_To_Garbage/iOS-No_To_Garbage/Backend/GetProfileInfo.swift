@@ -29,9 +29,8 @@ class GetProfileInfo {
                 databaseReference.observeSingleEvent(of: .value) { (DataSnapshot) in
                     let count = DataSnapshot.value as! String
                     garbage.append("\(self.category[i]): \(count)")
-                    if (i == self.category.count-1){
                         completion(garbage)
-                    }
+                    //}
                 }
                 
             }

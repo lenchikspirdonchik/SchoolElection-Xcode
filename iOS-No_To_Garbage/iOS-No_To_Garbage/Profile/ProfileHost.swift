@@ -11,10 +11,11 @@ struct ProfileHost: View {
     @State var name = "Загрузка"
     @State var txtEmail = "Загрузка"
     @State var garbage = ""
+    @State var category = [""]
     let database = GetProfileInfo()
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
-        var category = [""]
+        
         let user = currUser()
         if (user != nil){
             
@@ -26,7 +27,7 @@ struct ProfileHost: View {
             }.padding(.all, 20)
             
             
-
+            
             List{
                 
                 Text(txtEmail).onAppear(){
@@ -35,11 +36,14 @@ struct ProfileHost: View {
                 }
                 
                 ForEach(category, id: \.self) { key in
+                    
                     Text(key)
                 }
-            }.onAppear(){
+            }
+            .onAppear(){
                 database.getGarbage(uid: user!.uid) { result in
                     category = result
+                    //category.remove(at: 0)
                     print(category)
                 }
             }
@@ -55,6 +59,7 @@ struct ProfileHost: View {
                     self.presentationMode.wrappedValue.dismiss()
                 }
             }.padding(.top, 30)
+            Spacer(minLength: 30)
             
         }
         

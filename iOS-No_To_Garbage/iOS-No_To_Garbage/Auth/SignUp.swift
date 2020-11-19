@@ -129,6 +129,8 @@ struct SignUp: View {
                     let button = Alert.Button.default(Text("OK")) {
                         print("Вы успешно зарегистрировались!")
                         self.presentationMode.wrappedValue.dismiss()
+                        self.presentationMode.wrappedValue.dismiss()
+                        self.presentationMode.wrappedValue.dismiss()
                     }
                     return Alert(title: Text("Поздравляем!"), message: Text("Вы успешно зарегистрировались!"), dismissButton: button)
                 }else{
@@ -143,6 +145,8 @@ struct SignUp: View {
                     }
                     let secondaryButton = Alert.Button.destructive(Text("в следующий раз")) {
                         print("secondary button pressed")
+                        self.presentationMode.wrappedValue.dismiss()
+                        self.presentationMode.wrappedValue.dismiss()
                         self.presentationMode.wrappedValue.dismiss()
                     }
                     return Alert(title: Text("Произошла ошибка("), message: Text("Повторим еще раз?"), primaryButton: primaryButton, secondaryButton: secondaryButton)
