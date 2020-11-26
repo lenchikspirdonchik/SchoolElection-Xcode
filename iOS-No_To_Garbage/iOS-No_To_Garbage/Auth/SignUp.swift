@@ -143,6 +143,10 @@ struct SignUp: View {
                         name = ""
                         
                     }
+                    
+                    
+                    
+                    
                     let secondaryButton = Alert.Button.destructive(Text("в следующий раз")) {
                         print("secondary button pressed")
                         self.presentationMode.wrappedValue.dismiss()

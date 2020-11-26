@@ -24,7 +24,7 @@ struct GarbageList: View {
             
            
             }.navigationBarTitle(Text("Мусор"))
-        }
+        }.padding(-0.25)
         
     }
 }
