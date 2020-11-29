@@ -30,6 +30,7 @@
 		84FCEBA42548B26100A6564B /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FCEBA32548B26100A6564B /* CategoryRow.swift */; };
 		84FCEBA72548B80E00A6564B /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FCEBA62548B80E00A6564B /* Home.swift */; };
 		84FCEBB02548BEFD00A6564B /* ProfileHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FCEBAF2548BEFD00A6564B /* ProfileHost.swift */; };
+		84FDFB8C257429F5000B1F67 /* AddgarbageToBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FDFB8B257429F5000B1F67 /* AddgarbageToBase.swift */; };
 		E5921D452514D54D955831EA /* Pods_iOS_No_To_Garbage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A468EAEBA5D77A9CFDF6ED8D /* Pods_iOS_No_To_Garbage.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,7 @@
 		84FCEBA32548B26100A6564B /* CategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
 		84FCEBA62548B80E00A6564B /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		84FCEBAF2548BEFD00A6564B /* ProfileHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHost.swift; sourceTree = "<group>"; };
+		84FDFB8B257429F5000B1F67 /* AddgarbageToBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddgarbageToBase.swift; sourceTree = "<group>"; };
 		A468EAEBA5D77A9CFDF6ED8D /* Pods_iOS_No_To_Garbage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_No_To_Garbage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -177,6 +179,7 @@
 				84F85546253DDB1D0037E5D0 /* GetMapInfo.swift */,
 				84F8554A253DDB2D0037E5D0 /* GetGarbageInfo.swift */,
 				849117A22549D3680008F977 /* GetProfileInfo.swift */,
+				84FDFB8B257429F5000B1F67 /* AddgarbageToBase.swift */,
 			);
 			path = Backend;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				84D8E4E0253CD79B00E0398A /* CircleImage.swift in Sources */,
 				84FCEBA42548B26100A6564B /* CategoryRow.swift in Sources */,
 				84F85547253DDB1D0037E5D0 /* GetMapInfo.swift in Sources */,
+				84FDFB8C257429F5000B1F67 /* AddgarbageToBase.swift in Sources */,
 				849117A72549D9F30008F977 /* SignIn.swift in Sources */,
 				84CA150E255B29FC00E71E9F /* SignUp.swift in Sources */,
 			);

@@ -51,7 +51,7 @@ struct OtherCategoryItem: View {
     var garbage:String
     var body: some View {
         
-        let photo:[String : String] = [ "Статистика" : "battery" , "Выкинуть мусор" : "goodclothes" , "Все мусорки города" : "technic"]
+        let photo:[String : String] = [ "Статистика" : "battery" , "Выкинуть мусор" : "addGarbage" , "Все мусорки города" : "technic"]
         
         VStack(alignment: .leading) {
             Image(photo[garbage]!)

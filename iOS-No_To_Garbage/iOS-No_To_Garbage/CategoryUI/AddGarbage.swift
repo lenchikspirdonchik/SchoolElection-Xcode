@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import FirebaseAuth
 struct AddGarbage: View {
     let category:[String] = ["Батарейки", "Бумага", "Техника", "Бутылки", "Одежда в плохом состоянии", "Одежда в хорошем состоянии", "Стеклянные банки", "Контейнеры", "Коробки"]
     @State private var selected = 0
@@ -21,11 +21,15 @@ struct AddGarbage: View {
                 Text("Сколько выкинул?").font(.title).padding(.top, -40).padding(.leading, 10)
                 
                 
+                
                 Picker(selection: $selected, label: Text("")) {
                     ForEach(0 ..< category.count) {
                         Text(self.category[$0])
                     }
                 }.padding(.top, -30)
+                
+                
+                
                 
                 
                 HStack{
@@ -35,9 +39,15 @@ struct AddGarbage: View {
                 }.padding()
                 
                 
+                
+                
+                
                 Button(action: {
-                    showGoodAlert = true
-                    self.showAlert.toggle()
+                    AddGarbageToBase().add(uid: currUser()!.uid, garbage: category[selected], garCount: sum) { (isTrue) in
+                        showGoodAlert = isTrue
+                        self.showAlert.toggle()
+                    }
+                   
                 }) {
                     HStack {
                         Spacer()
@@ -50,32 +60,43 @@ struct AddGarbage: View {
                 .background(Color.blue)
                 .cornerRadius(16.0)
                 .padding()
-                /*.alert(isPresented: $showAlert) { () -> Alert in
+                .alert(isPresented: $showAlert) { () -> Alert in
                     
                     if (showGoodAlert){
                         let button = Alert.Button.default(Text("OK")) {
-                            print("Вы успешно зарегистрировались!")
-                            self.presentationMode.wrappedValue.dismiss()
-                            self.presentationMode.wrappedValue.dismiss()
+                            print("Вы успешно выкинули!")
                             self.presentationMode.wrappedValue.dismiss()
                         }
-                        return Alert(title: Text("Поздравляем!"), message: Text("Вы успешно зарегистрировались!"), dismissButton: button)
+                        return Alert(title: Text("Поздравляем!"), message: Text("Вы успешно выкинули мусор!"), dismissButton: button)
                     }else{
                         
                         let primaryButton = Alert.Button.cancel(Text("Конечно!")) {
                             print("primary button pressed")
-                            email = ""
-                            password = ""
-                            passwordRepeat = ""
-                            name = ""
                             
-                        }*/
-                        
+                        }
+                        let secondaryButton = Alert.Button.destructive(Text("в следующий раз")) {
+                            self.presentationMode.wrappedValue.dismiss()
+                        }
+                        return Alert(title: Text("Произошла ошибка("), message: Text("Повторим еще раз?"), primaryButton: primaryButton, secondaryButton: secondaryButton)
+                    }
+                }
+                
+                
+                
+                
+                
                 
             }
         }
     }
+    func currUser() -> User? {
+        let user = Auth.auth().currentUser
+        return user
+    }
+    
 }
+
+
 
 struct AddGarbage_Previews: PreviewProvider {
     static var previews: some View {
