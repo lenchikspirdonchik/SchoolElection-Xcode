@@ -43,7 +43,6 @@ struct ProfileHost: View {
             .onAppear(){
                 database.getGarbage(uid: user!.uid) { result in
                     category = result
-                    //category.remove(at: 0)
                     print(category)
                 }
             }

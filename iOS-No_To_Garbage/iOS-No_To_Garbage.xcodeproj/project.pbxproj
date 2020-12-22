@@ -3,12 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8406B60525782D5900E110AE /* SunburstDiagram in Frameworks */ = {isa = PBXBuildFile; productRef = 8406B60425782D5900E110AE /* SunburstDiagram */; };
 		840E32502567105B002B2DBF /* CategoryOther.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E324F2567105B002B2DBF /* CategoryOther.swift */; };
 		840E3257256713CE002B2DBF /* AddGarbage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E3256256713CE002B2DBF /* AddGarbage.swift */; };
+		841C9604257977C700ACF671 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 841C9603257977C700ACF671 /* SwiftUICharts */; };
+		847A711C259286E7006E8AA7 /* getStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A711B259286E7006E8AA7 /* getStatistics.swift */; };
 		849117A32549D3680008F977 /* GetProfileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849117A22549D3680008F977 /* GetProfileInfo.swift */; };
 		849117A72549D9F30008F977 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849117A62549D9F30008F977 /* SignIn.swift */; };
 		84CA150E255B29FC00E71E9F /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CA150D255B29FC00E71E9F /* SignUp.swift */; };
@@ -40,6 +43,7 @@
 		668BEED6F82631ACA65182CB /* Pods-iOS-No_To_Garbage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-No_To_Garbage.release.xcconfig"; path = "Target Support Files/Pods-iOS-No_To_Garbage/Pods-iOS-No_To_Garbage.release.xcconfig"; sourceTree = "<group>"; };
 		840E324F2567105B002B2DBF /* CategoryOther.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryOther.swift; sourceTree = "<group>"; };
 		840E3256256713CE002B2DBF /* AddGarbage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGarbage.swift; sourceTree = "<group>"; };
+		847A711B259286E7006E8AA7 /* getStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getStatistics.swift; sourceTree = "<group>"; };
 		849117A22549D3680008F977 /* GetProfileInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProfileInfo.swift; sourceTree = "<group>"; };
 		849117A62549D9F30008F977 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
 		84CA150D255B29FC00E71E9F /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
@@ -73,6 +77,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				841C9604257977C700ACF671 /* SwiftUICharts in Frameworks */,
+				8406B60525782D5900E110AE /* SunburstDiagram in Frameworks */,
 				E5921D452514D54D955831EA /* Pods_iOS_No_To_Garbage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -183,6 +189,7 @@
 				84F8554A253DDB2D0037E5D0 /* GetGarbageInfo.swift */,
 				849117A22549D3680008F977 /* GetProfileInfo.swift */,
 				84FDFB8B257429F5000B1F67 /* AddgarbageToBase.swift */,
+				847A711B259286E7006E8AA7 /* getStatistics.swift */,
 			);
 			path = Backend;
 			sourceTree = "<group>";
@@ -222,6 +229,10 @@
 			dependencies = (
 			);
 			name = "iOS-No_To_Garbage";
+			packageProductDependencies = (
+				8406B60425782D5900E110AE /* SunburstDiagram */,
+				841C9603257977C700ACF671 /* SwiftUICharts */,
+			);
 			productName = "iOS-No_To_Garbage";
 			productReference = 84D8E4BD253CD00A00E0398A /* iOS-No_To_Garbage.app */;
 			productType = "com.apple.product-type.application";
@@ -249,6 +260,10 @@
 				Base,
 			);
 			mainGroup = 84D8E4B4253CD00A00E0398A;
+			packageReferences = (
+				8406B60325782D5900E110AE /* XCRemoteSwiftPackageReference "SwiftSunburstDiagram" */,
+				841C9602257977C700ACF671 /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = 84D8E4BE253CD00A00E0398A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -320,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				840E3257256713CE002B2DBF /* AddGarbage.swift in Sources */,
+				847A711C259286E7006E8AA7 /* getStatistics.swift in Sources */,
 				84D8E4C1253CD00A00E0398A /* AppDelegate.swift in Sources */,
 				84D8E4C3253CD00A00E0398A /* SceneDelegate.swift in Sources */,
 				84D8E4DC253CD48B00E0398A /* MapView.swift in Sources */,
@@ -541,6 +557,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8406B60325782D5900E110AE /* XCRemoteSwiftPackageReference "SwiftSunburstDiagram" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lludo/SwiftSunburstDiagram.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
+		841C9602257977C700ACF671 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8406B60425782D5900E110AE /* SunburstDiagram */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8406B60325782D5900E110AE /* XCRemoteSwiftPackageReference "SwiftSunburstDiagram" */;
+			productName = SunburstDiagram;
+		};
+		841C9603257977C700ACF671 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 841C9602257977C700ACF671 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		84D8E4C6253CD00A00E0398A /* iOS_No_To_Garbage.xcdatamodeld */ = {

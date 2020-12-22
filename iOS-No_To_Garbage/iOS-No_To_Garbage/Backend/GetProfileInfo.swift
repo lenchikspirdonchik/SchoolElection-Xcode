@@ -30,11 +30,9 @@ class GetProfileInfo {
                     let count = DataSnapshot.value as! String
                     garbage.append("\(self.category[i]): \(count)")
                         completion(garbage)
-                    //}
                 }
                 
             }
-        
     }
     
     
