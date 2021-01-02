@@ -47,6 +47,13 @@ struct ProfileHost: View {
                 }
             }
             
+            
+            Button("Обнулить статистику"){
+                database.delGarbage(uid: user!.uid)
+                self.presentationMode.wrappedValue.dismiss()
+            }
+            
+            
             Button("Выйти") {
                 let firebaseAuth = Auth.auth()
                 do {
@@ -54,10 +61,13 @@ struct ProfileHost: View {
                     self.presentationMode.wrappedValue.dismiss()
                     
                 } catch let signOutError as NSError {
-                    print ("Error signing out: %@", signOutError)
-                    self.presentationMode.wrappedValue.dismiss()
-                }
+                    print ("Error signing out: %@", signOutError)                }
             }.padding(.top, 30)
+            
+            
+            
+      
+            
             Spacer(minLength: 30)
             
         }

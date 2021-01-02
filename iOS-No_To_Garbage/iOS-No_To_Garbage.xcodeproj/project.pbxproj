@@ -10,6 +10,7 @@
 		8406B60525782D5900E110AE /* SunburstDiagram in Frameworks */ = {isa = PBXBuildFile; productRef = 8406B60425782D5900E110AE /* SunburstDiagram */; };
 		840E32502567105B002B2DBF /* CategoryOther.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E324F2567105B002B2DBF /* CategoryOther.swift */; };
 		840E3257256713CE002B2DBF /* AddGarbage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E3256256713CE002B2DBF /* AddGarbage.swift */; };
+		8410ADCD25A1275000928AA8 /* AllGarbageMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410ADCC25A1275000928AA8 /* AllGarbageMap.swift */; };
 		841C9604257977C700ACF671 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 841C9603257977C700ACF671 /* SwiftUICharts */; };
 		847A711C259286E7006E8AA7 /* getStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A711B259286E7006E8AA7 /* getStatistics.swift */; };
 		849117A32549D3680008F977 /* GetProfileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849117A22549D3680008F977 /* GetProfileInfo.swift */; };
@@ -43,6 +44,7 @@
 		668BEED6F82631ACA65182CB /* Pods-iOS-No_To_Garbage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-No_To_Garbage.release.xcconfig"; path = "Target Support Files/Pods-iOS-No_To_Garbage/Pods-iOS-No_To_Garbage.release.xcconfig"; sourceTree = "<group>"; };
 		840E324F2567105B002B2DBF /* CategoryOther.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryOther.swift; sourceTree = "<group>"; };
 		840E3256256713CE002B2DBF /* AddGarbage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGarbage.swift; sourceTree = "<group>"; };
+		8410ADCC25A1275000928AA8 /* AllGarbageMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGarbageMap.swift; sourceTree = "<group>"; };
 		847A711B259286E7006E8AA7 /* getStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getStatistics.swift; sourceTree = "<group>"; };
 		849117A22549D3680008F977 /* GetProfileInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProfileInfo.swift; sourceTree = "<group>"; };
 		849117A62549D9F30008F977 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				84FCEBA32548B26100A6564B /* CategoryRow.swift */,
 				840E3256256713CE002B2DBF /* AddGarbage.swift */,
 				84FF81C8257828C900DE8A7C /* Statistics.swift */,
+				8410ADCC25A1275000928AA8 /* AllGarbageMap.swift */,
 			);
 			path = CategoryUI;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				84D8E4C8253CD00A00E0398A /* iOS_No_To_Garbage.xcdatamodeld in Sources */,
 				84FCEBB02548BEFD00A6564B /* ProfileHost.swift in Sources */,
 				84D8E4E9253CE9FD00E0398A /* GarbageList.swift in Sources */,
+				8410ADCD25A1275000928AA8 /* AllGarbageMap.swift in Sources */,
 				84D8E4E0253CD79B00E0398A /* CircleImage.swift in Sources */,
 				84FCEBA42548B26100A6564B /* CategoryRow.swift in Sources */,
 				84F85547253DDB1D0037E5D0 /* GetMapInfo.swift in Sources */,

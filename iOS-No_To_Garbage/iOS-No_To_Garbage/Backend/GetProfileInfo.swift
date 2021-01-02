@@ -36,6 +36,17 @@ class GetProfileInfo {
     }
     
     
+    func delGarbage(uid:String) {
+        let rootReference = Database.database().reference()
+        let garbageReference = rootReference.child("Users").child(uid).child("Garbage")
+        for i in 0...self.category.count-1{
+            let databaseReference = garbageReference.child(self.category[i])
+            databaseReference.setValue("0")
+            
+        }
+    }
+    
+    
     
     
 }

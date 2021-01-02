@@ -10,24 +10,24 @@ import FirebaseAuth
 
 
 struct Statistics: View {
-    @State var numbers:[Int] = [0, 0, 0, 0, 0, 0, 0, 0, 0 ,0]
+    @State var numbers:[Int] = [1,1,1,1,1,1,1,1]
+    @State var chartData: [Double] = [0, 5, 6, 2, 13, 4, 3, 6]
     var body: some View {
-        
-        BarChartView(data: ChartData(values: [("Батарейки", numbers[0]), ("Бумага", numbers[1]), ("Техника", numbers[2]), ("Бутылки", numbers[3]), ("Одежда в плохом состоянии", numbers[4]), ("Одежда в хорошем состоянии", numbers[5]), ("Стеклянные банки", numbers[6]), ("Контейнеры", numbers[7]), ("Коробки", numbers[8])]), title: "Sales", legend: "Quarterly", form: ChartForm.medium)
-            .onAppear(){
-            let myUid = currUser()?.uid
-            if (myUid == nil){
-                
-            }else{
-                getStatistics().getGarbage(uid: myUid!) { (done) in
-                    numbers = done
-                    print(numbers)
-                }
-            }
-        }
        
         
         
+        BarChartView(data: ChartData(values: [("Батарейки", numbers[0]), ("Бумага", numbers[1]), ("Техника", numbers[2])]), title: "Sales", legend: "Quarterly", form: ChartForm.extraLarge)
+          .onAppear {
+                let myUid = currUser()?.uid
+                if (myUid != nil){
+                    getStatistics().getGarbage(uid: myUid!) { (done) in
+                        numbers = done
+                        print(numbers)
+                    }
+                }
+            }
+       
+
     }
     func currUser() -> User? {
         let user = Auth.auth().currentUser

@@ -86,6 +86,8 @@ struct SignIn: View {
                             print("Вы успешно вошли!")
                             self.presentationMode.wrappedValue.dismiss()
                             self.presentationMode.wrappedValue.dismiss()
+                            self.presentationMode.wrappedValue.dismiss()
+                            self.presentationMode.wrappedValue.dismiss()
                         }
                         return Alert(title: Text("Поздравляем!"), message: Text("Вы успешно вошли!"), dismissButton: button)
                     }else{
@@ -96,6 +98,8 @@ struct SignIn: View {
                         }
                         let secondaryButton = Alert.Button.destructive(Text("в следующий раз")) {
                             print("secondary button pressed")
+                            self.presentationMode.wrappedValue.dismiss()
+                            self.presentationMode.wrappedValue.dismiss()
                             self.presentationMode.wrappedValue.dismiss()
                             self.presentationMode.wrappedValue.dismiss()
                         }

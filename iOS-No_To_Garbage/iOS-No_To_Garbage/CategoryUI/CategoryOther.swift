@@ -31,7 +31,7 @@ struct CategoryOther: View {
                     }
                     
                     NavigationLink(
-                        destination: AddGarbage()
+                        destination: AllGarbageMap()
                     ) {
                         OtherCategoryItem(garbage: "Все мусорки города")
                     }
