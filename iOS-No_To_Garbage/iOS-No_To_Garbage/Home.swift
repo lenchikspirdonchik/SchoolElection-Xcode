@@ -19,7 +19,7 @@ struct CategoryHome: View {
         }
     }
     var body: some View {
-
+        
         
         
         
@@ -43,8 +43,8 @@ struct CategoryHome: View {
                 .listRowInsets(EdgeInsets())
                 
                 
-       CategoryOther()
-        .listRowInsets(EdgeInsets())
+                CategoryOther()
+                    .listRowInsets(EdgeInsets())
                 
                 
                 
@@ -55,16 +55,18 @@ struct CategoryHome: View {
                 NavigationLink( destination: SignIn()) {
                     Text("Войти в личный кабинет")
                 }
-
-         
-    
+                
+                NavigationLink( destination: AboutApp()) {
+                    Text("О приложении")
+                }
+                
             }
             .navigationBarTitle(Text("Интересное"))
             .navigationBarItems(trailing: profileButton)
             .sheet(isPresented: $showingProfile) {
                 ProfileHost()
             }
-
+            
         }
         .padding(.horizontal, -10)
     }
