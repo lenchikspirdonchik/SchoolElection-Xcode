@@ -33,7 +33,12 @@ struct AddGarbage: View {
                 
                 
                 HStack{
-                    Label("Количество       ", systemImage: "plus")
+                    if #available(iOS 14.0, *) {
+                        Label("Количество       ", systemImage: "plus")
+                    } else {
+                        // Fallback on earlier versions
+                         Text("Количество       ")
+                    }
                     Text(String(sum))
                     Stepper("", value: $sum, in: 1...20)
                 }.padding()

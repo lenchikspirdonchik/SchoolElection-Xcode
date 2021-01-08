@@ -19,19 +19,23 @@ struct CategoryHome: View {
         }
     }
     var body: some View {
-        
+
         
         
         
         let mainCategory: [String] = ["Кухня","Ванная", "Гардеробная", "Кабинет"]
         NavigationView {
             List {
-                Image("battery")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(height: 200)
-                    .clipped()
-                    .listRowInsets(EdgeInsets())
+                NavigationLink( destination: GarbageDetail(garbage: "Батарейки")) {
+                    Image("battery")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(height: 200)
+                        .clipped()
+                        .listRowInsets(EdgeInsets())
+                }.padding(.horizontal, -40)
+                
+                
                 
                 ForEach(mainCategory, id: \.self) { key in
                     CategoryRow(categoryName: key)

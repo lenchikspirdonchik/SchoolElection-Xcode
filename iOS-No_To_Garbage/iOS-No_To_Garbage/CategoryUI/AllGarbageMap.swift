@@ -43,12 +43,7 @@ struct AllGarbageMap: UIViewRepresentable {
                         let point = Snapshot.value as? String ?? "0.00,0.00"
                         let splitPoint = point.split(separator: ",")
                         latLangArray = CLLocationCoordinate2D(latitude: Double(splitPoint[0]) ?? 0.00, longitude: Double(splitPoint[1]) ?? 0.00)
-                        
-                        print("start")
-                        print(category[i])
-                        print(latLangArray)
-                        print(hintArray)
-                        print("end")
+
                         let annotation = MKPointAnnotation()
                         annotation.title = category[i]
                         annotation.subtitle = hintArray

@@ -7,7 +7,7 @@
 
 import UIKit
 import SwiftUI
-
+import CoreSpotlight
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -23,8 +23,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
+        
+        if #available(iOS 14.0, *) {
+            let attributes = CSSearchableItemAttributeSet(contentType: .application)
+            attributes.title = "Скажи да мусору!"
+            attributes.contentDescription = "Простая и удобная утилизация мусора"
+            attributes.keywords = ["мусор", "утилизация", "выкинуть"]
+            
+            let searchableItem = CSSearchableItem(uniqueIdentifier: "Утилизвция мусора", domainIdentifier: "Выкидываем правильно", attributeSet: attributes)
+            CSSearchableIndex.default().indexSearchableItems([searchableItem]) { _ -> Void in }
+        }
+        
+      
+        
+        
         let contentView = ContentView().environment(\.managedObjectContext, context)
+       
 
+        
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
