@@ -12,6 +12,7 @@
 		840E3257256713CE002B2DBF /* AddGarbage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E3256256713CE002B2DBF /* AddGarbage.swift */; };
 		8410ADCD25A1275000928AA8 /* AllGarbageMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410ADCC25A1275000928AA8 /* AllGarbageMap.swift */; };
 		841C9604257977C700ACF671 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 841C9603257977C700ACF671 /* SwiftUICharts */; };
+		841F85FF25A9B75000F94B9F /* AddGarbageMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841F85FE25A9B75000F94B9F /* AddGarbageMap.swift */; };
 		843C54CC25A8EA8A008627FA /* AboutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C54CB25A8EA8A008627FA /* AboutApp.swift */; };
 		847A711C259286E7006E8AA7 /* getStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A711B259286E7006E8AA7 /* getStatistics.swift */; };
 		849117A32549D3680008F977 /* GetProfileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849117A22549D3680008F977 /* GetProfileInfo.swift */; };
@@ -46,6 +47,7 @@
 		840E324F2567105B002B2DBF /* CategoryOther.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryOther.swift; sourceTree = "<group>"; };
 		840E3256256713CE002B2DBF /* AddGarbage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGarbage.swift; sourceTree = "<group>"; };
 		8410ADCC25A1275000928AA8 /* AllGarbageMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGarbageMap.swift; sourceTree = "<group>"; };
+		841F85FE25A9B75000F94B9F /* AddGarbageMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGarbageMap.swift; sourceTree = "<group>"; };
 		843C54CB25A8EA8A008627FA /* AboutApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutApp.swift; sourceTree = "<group>"; };
 		847A711B259286E7006E8AA7 /* getStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getStatistics.swift; sourceTree = "<group>"; };
 		849117A22549D3680008F977 /* GetProfileInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProfileInfo.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				84FF81C8257828C900DE8A7C /* Statistics.swift */,
 				8410ADCC25A1275000928AA8 /* AllGarbageMap.swift */,
 				843C54CB25A8EA8A008627FA /* AboutApp.swift */,
+				841F85FE25A9B75000F94B9F /* AddGarbageMap.swift */,
 			);
 			path = CategoryUI;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				84D8E4E3253CDAAA00E0398A /* GarbageDetail.swift in Sources */,
 				84FF81C9257828C900DE8A7C /* Statistics.swift in Sources */,
 				84FCEBA72548B80E00A6564B /* Home.swift in Sources */,
+				841F85FF25A9B75000F94B9F /* AddGarbageMap.swift in Sources */,
 				84F8554B253DDB2D0037E5D0 /* GetGarbageInfo.swift in Sources */,
 				840E32502567105B002B2DBF /* CategoryOther.swift in Sources */,
 				849117A32549D3680008F977 /* GetProfileInfo.swift in Sources */,

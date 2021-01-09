@@ -45,7 +45,7 @@ struct GarbageDetail: View {
                     .font(.subheadline)
                     .onAppear {
                     garbageInfo.getInfo(path: garbage) { resultString in
-                        result = resultString
+                        result = resultString.replacingOccurrences(of: "_n", with: "\n")
                     }
                 }
                 

@@ -18,7 +18,7 @@
                 .frame(width: 200, height: 200)
                 .padding(.top, -40)
             
-            Text("Скажи мусору да!").bold()
+            Text("Скажи да мусору!").bold()
             Text("Version 1.0").foregroundColor(.gray)
             
             
