@@ -41,7 +41,7 @@
             if #available(iOS 14.0, *) {
                 Link("VK: https://vk.com/leonid.spiri", destination: URL(string: "https://vk.com/leonid.spiri")!).foregroundColor(.gray)
                 Link("in: https://www.linkedin.com/...", destination: URL(string: "https://www.linkedin.com/in/leonid-spiridonov-424a601ab/")!).foregroundColor(.gray)
-                Link("Gmail: spiridonov.production@gmail.com", destination: URL(string: "spiridonov.production@gmail.com")!).foregroundColor(.gray)
+                Link("Gmail: spiridonov.production@gmail.com", destination: URL(string: "mailto:spiridonov.production@gmail.com")!).foregroundColor(.gray)
                 
             } else {
                 Text("VK: https://vk.com/leonid.spiri").foregroundColor(.gray)
