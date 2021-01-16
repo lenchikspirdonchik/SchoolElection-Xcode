@@ -10,25 +10,35 @@ import FirebaseAuth
 
 
 struct Statistics: View {
-    @State var numbers:[Int] = [1,1,1,1,1,1,1,1]
-    @State var chartData: [Double] = [0, 5, 6, 2, 13, 4, 3, 6]
+    @State var numbers:[(String,Double)] = []
+    @State var text = "Загрузка"
     var body: some View {
-       
+        VStack {
+            Text(text).bold()
+            if !numbers.isEmpty{
+                BarChartView(data: ChartData(values: numbers), title: "Статистика", legend: "Так держать!", form: ChartForm.extraLarge).padding(.horizontal, 50)
+                
+            }
+        }
         
-        
-        BarChartView(data: ChartData(values: [("Батарейки", numbers[0]), ("Бумага", numbers[1]), ("Техника", numbers[2])]), title: "Sales", legend: "Quarterly", form: ChartForm.extraLarge)
-          .onAppear {
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now()){
                 let myUid = currUser()?.uid
                 if (myUid != nil){
                     getStatistics().getGarbage(uid: myUid!) { (done) in
+                        text = ""
                         numbers = done
-                        print(numbers)
                     }
                 }
+                else{
+                    text = "Для начало нужно войти в аккаунт"
+                }
             }
-       
-
+        }
     }
+    
+    
+    
     func currUser() -> User? {
         let user = Auth.auth().currentUser
         return user

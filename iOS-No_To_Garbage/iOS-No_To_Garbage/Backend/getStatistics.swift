@@ -11,21 +11,23 @@ import FirebaseDatabase
 
 class getStatistics {
     let category:[String] = ["Батарейки", "Бумага", "Техника", "Бутылки", "Одежда в плохом состоянии", "Одежда в хорошем состоянии", "Стеклянные банки", "Контейнеры", "Коробки"]
-    func getGarbage(uid:String, completion: @escaping ([Int]) -> Void) {
+    
+    func getGarbage(uid:String, completion: @escaping ([(String,Double)]) -> Void) {
         let rootReference = Database.database().reference()
-        var garbage = [0]
+        var points: [(String,Double)] = []
         let garbageReference = rootReference.child("Users").child(uid).child("Garbage")
+        
         for i in 0...self.category.count-1{
             let databaseReference = garbageReference.child(self.category[i])
             databaseReference.observeSingleEvent(of: .value) { (DataSnapshot) in
                 let count = DataSnapshot.value as! String
-                garbage.append(Int(count) ?? 0)
-                if (garbage.count == self.category.count){
-                completion(garbage)
+                points.append((self.category[i],  Double(count) ?? 0.0))
+                if (points.count == self.category.count){
+                    completion(points)
                 }
             }
             
         }
     }
 }
-    
+
