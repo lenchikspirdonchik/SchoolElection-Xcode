@@ -14,6 +14,7 @@ struct ProfileHost: View {
     @State var category = [""]
     let database = GetProfileInfo()
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @State private var showingActionSheet = false
     var body: some View {
         
         let user = currUser()
@@ -47,17 +48,41 @@ struct ProfileHost: View {
                 }
             }
             
+
             
             Button("Обнулить статистику"){
                 database.delGarbage(uid: user!.uid)
                 self.presentationMode.wrappedValue.dismiss()
+            }.padding(.top, 30)
+            
+
+            
+            Button("Удалить аккаунт"){
+                self.showingActionSheet = true
+            }
+            .padding(.top, 30)
+            .actionSheet(isPresented: $showingActionSheet) {
+                ActionSheet(title: Text("Вы точно хотите удалить аккаунт?"), message: Text("Удалится вся ваша статистика. Это действие будет не отменить!"), buttons: [
+                    .destructive(Text("Удалить")) {
+                        database.delUser(uid: user!.uid)
+                        self.presentationMode.wrappedValue.dismiss()
+                        Auth.auth().currentUser?.delete(completion: { (error) in
+                            print(error)
+                        })
+                        
+                    },
+                    .cancel()
+                ])
             }
             
+
             
             Button("Выйти") {
                 let firebaseAuth = Auth.auth()
+                
                 do {
                     try firebaseAuth.signOut()
+                    self.presentationMode.wrappedValue.dismiss()
                     self.presentationMode.wrappedValue.dismiss()
                     
                 } catch let signOutError as NSError {
@@ -66,7 +91,7 @@ struct ProfileHost: View {
             
             
             
-      
+            
             
             Spacer(minLength: 30)
             

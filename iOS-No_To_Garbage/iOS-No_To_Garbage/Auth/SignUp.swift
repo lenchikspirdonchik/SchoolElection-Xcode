@@ -16,7 +16,7 @@ struct SignUp: View {
     @State var showGoodAlert = false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
-       
+        
         
         ScrollView {
             Text("Зарегистрируйтесь, чтобы получить доступ ко многим полезным вещам")
@@ -108,8 +108,8 @@ struct SignUp: View {
                     }
                     else{
                         showGoodAlert = false
-                    
-                    self.showAlert.toggle()
+                        
+                        self.showAlert.toggle()
                     }
                 }
             }) {
@@ -129,8 +129,7 @@ struct SignUp: View {
                     let button = Alert.Button.default(Text("OK")) {
                         print("Вы успешно зарегистрировались!")
                         self.presentationMode.wrappedValue.dismiss()
-                        self.presentationMode.wrappedValue.dismiss()
-                        self.presentationMode.wrappedValue.dismiss()
+                        
                     }
                     return Alert(title: Text("Поздравляем!"), message: Text("Вы успешно зарегистрировались!"), dismissButton: button)
                 }else{
@@ -181,7 +180,7 @@ class CreatUser{
             print("error = \(error.debugDescription)")
             if (user != nil){
                 Auth.auth().currentUser?.sendEmailVerification { (error) in }
-               self.createGarbageInDatabase()
+                self.createGarbageInDatabase()
                 self.saveNameInDatabase(name: name)
                 completion(true)
             }

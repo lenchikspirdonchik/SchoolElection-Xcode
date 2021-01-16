@@ -46,7 +46,11 @@ class GetProfileInfo {
         }
     }
     
-    
+    func delUser(uid:String) {
+        let rootReference = Database.database().reference()
+        let userReference = rootReference.child("Users").child(uid)
+        userReference.removeValue()
+    }
     
     
 }
