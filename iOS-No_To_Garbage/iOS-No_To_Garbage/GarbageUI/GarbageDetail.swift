@@ -33,7 +33,7 @@ struct GarbageDetail: View {
             
             CircleImage(image: Image(photo[garbage]!))
                 .offset(x: 0, y: -60)
-                .padding(.bottom, -80)
+                .padding(.bottom, -70)
             
             VStack(alignment: .leading) {
                 
@@ -51,7 +51,8 @@ struct GarbageDetail: View {
                 
                 
             }
-            .padding()
+            //.offset(x:0, y:150)
+            //.padding(.bottom, 300)
             
             Spacer()
         }.padding(.top, -20)

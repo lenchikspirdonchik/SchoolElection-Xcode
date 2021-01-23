@@ -13,12 +13,38 @@ struct CircleImage: View {
         
         var body: some View {
          
-            image
+           /* image
                 .resizable()
                 .clipShape(Circle())
                 .overlay(Circle().stroke(Color.white, lineWidth: 4))
                 .shadow(radius: 10)
-                .frame(width: 200, height: 200, alignment: .center)
+                .frame(width: 200, height: 200, alignment: .center)*/
+            
+            if #available(iOS 14.0, *) {
+                GeometryReader{ proxy in
+                TabView{
+                    ForEach (0..<7){number in
+                        Image("\(number)")
+                            .resizable()
+                            .clipShape(Circle())
+                            .overlay(Circle().stroke(Color.white, lineWidth: 4))
+                            .shadow(radius: 10)
+                            .frame(width: 200, height: 200, alignment: .center)
+                        
+                    }
+                }.tabViewStyle(PageTabViewStyle())
+                .padding()
+                .clipShape(RoundedRectangle(cornerRadius: 25))
+               // .frame(width: 200, height: 200, alignment: .center)
+               // .frame(width: proxy.size.width, height: proxy.size.height / 2)
+                }
+            } else {
+                // Fallback on earlier versions
+            }
+            
+            
+            
+            
             
         }
 }
