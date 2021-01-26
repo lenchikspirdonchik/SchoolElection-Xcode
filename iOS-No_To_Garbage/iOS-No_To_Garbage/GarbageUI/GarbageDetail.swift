@@ -19,42 +19,38 @@ struct GarbageDetail: View {
     @State var coordinate = [CLLocationCoordinate2D(latitude: 0.00, longitude: 0.00)]
     @State var hint = ["загрузка"]
     var body: some View {
-
-       
+        
+        
         let photo:[String : String] = [ "Батарейки" : "battery" , "Бумага" : "paper" , "Техника" : "technic" , "Бутылки" : "kitchenbottles", "Бутылки " : "bathbottles" , "Одежда в плохом состоянии" : "badclothes" , "Одежда в хорошем состоянии" : "goodclothes" , "Стеклянные банки" : "jars" , "Контейнеры" : "containers" , "Коробки" : "box"]
         
         
         
         ScrollView(.vertical, showsIndicators: false)  {
-            MapView(coordinate: coordinate, hint: hint)
-                .edgesIgnoringSafeArea(.top)
-                .frame(height: 450)
+                MapView(coordinate: coordinate, hint: hint)
+                    .edgesIgnoringSafeArea(.top)
+                    .frame(height: 450)
+                
+                
+                CircleImage(image: Image(photo[garbage]!))
+                    .offset(x: 0, y: -60)
+                    .padding(.bottom, -70)
+                
+                    
+                    Text(garbage)
+                        .font(.title)
+                        .padding(.top, 140)
+            
+            
+                    Text(result)
+                        .font(.subheadline)
+                        .onAppear {
+                            garbageInfo.getInfo(path: garbage) { resultString in
+                                result = resultString.replacingOccurrences(of: "_n", with: "\n")
+                            }
+                        }
+                        .padding()
                 
             
-            CircleImage(image: Image(photo[garbage]!))
-                .offset(x: 0, y: -60)
-                .padding(.bottom, -70)
-            
-            VStack(alignment: .leading) {
-                
-                Text(garbage)
-                    .font(.title)
-                
-                
-                Text(result)
-                    .font(.subheadline)
-                    .onAppear {
-                    garbageInfo.getInfo(path: garbage) { resultString in
-                        result = resultString.replacingOccurrences(of: "_n", with: "\n")
-                    }
-                }
-                
-                
-            }
-            //.offset(x:0, y:150)
-            //.padding(.bottom, 300)
-            
-            Spacer()
         }.padding(.top, -20)
         .onAppear(){
             mapInfo.getNumber(path: garbage) { (number) in
