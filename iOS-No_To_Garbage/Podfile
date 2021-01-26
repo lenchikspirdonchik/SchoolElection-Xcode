@@ -9,5 +9,6 @@ target 'iOS-No_To_Garbage' do
 	pod 'Firebase/Analytics'
 	pod 'Firebase/Auth'
 	pod 'Firebase/Database'
-	pod 'SunburstDiagram', '~> 1.1.0'
+	pod 'Firebase/Storage'
+	#pod 'SunburstDiagram', '~> 1.1'
 end

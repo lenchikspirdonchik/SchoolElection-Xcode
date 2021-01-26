@@ -14,6 +14,7 @@
 		841C9604257977C700ACF671 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 841C9603257977C700ACF671 /* SwiftUICharts */; };
 		841F85FF25A9B75000F94B9F /* AddGarbageMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841F85FE25A9B75000F94B9F /* AddGarbageMap.swift */; };
 		843C54CC25A8EA8A008627FA /* AboutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C54CB25A8EA8A008627FA /* AboutApp.swift */; };
+		846275CF25C0A4FF00D3361F /* GetPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846275CE25C0A4FF00D3361F /* GetPhoto.swift */; };
 		847A711C259286E7006E8AA7 /* getStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A711B259286E7006E8AA7 /* getStatistics.swift */; };
 		849117A32549D3680008F977 /* GetProfileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849117A22549D3680008F977 /* GetProfileInfo.swift */; };
 		849117A72549D9F30008F977 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849117A62549D9F30008F977 /* SignIn.swift */; };
@@ -50,6 +51,7 @@
 		8410ADCC25A1275000928AA8 /* AllGarbageMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGarbageMap.swift; sourceTree = "<group>"; };
 		841F85FE25A9B75000F94B9F /* AddGarbageMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGarbageMap.swift; sourceTree = "<group>"; };
 		843C54CB25A8EA8A008627FA /* AboutApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutApp.swift; sourceTree = "<group>"; };
+		846275CE25C0A4FF00D3361F /* GetPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPhoto.swift; sourceTree = "<group>"; };
 		847A711B259286E7006E8AA7 /* getStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getStatistics.swift; sourceTree = "<group>"; };
 		849117A22549D3680008F977 /* GetProfileInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProfileInfo.swift; sourceTree = "<group>"; };
 		849117A62549D9F30008F977 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				849117A22549D3680008F977 /* GetProfileInfo.swift */,
 				84FDFB8B257429F5000B1F67 /* AddgarbageToBase.swift */,
 				847A711B259286E7006E8AA7 /* getStatistics.swift */,
+				846275CE25C0A4FF00D3361F /* GetPhoto.swift */,
 			);
 			path = Backend;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 			files = (
 				840E3257256713CE002B2DBF /* AddGarbage.swift in Sources */,
 				847A711C259286E7006E8AA7 /* getStatistics.swift in Sources */,
+				846275CF25C0A4FF00D3361F /* GetPhoto.swift in Sources */,
 				84D8E4C1253CD00A00E0398A /* AppDelegate.swift in Sources */,
 				84D8E4C3253CD00A00E0398A /* SceneDelegate.swift in Sources */,
 				84D8E4DC253CD48B00E0398A /* MapView.swift in Sources */,

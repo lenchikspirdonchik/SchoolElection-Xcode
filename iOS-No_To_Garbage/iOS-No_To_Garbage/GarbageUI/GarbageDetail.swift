@@ -21,35 +21,35 @@ struct GarbageDetail: View {
     var body: some View {
         
         
-        let photo:[String : String] = [ "Батарейки" : "battery" , "Бумага" : "paper" , "Техника" : "technic" , "Бутылки" : "kitchenbottles", "Бутылки " : "bathbottles" , "Одежда в плохом состоянии" : "badclothes" , "Одежда в хорошем состоянии" : "goodclothes" , "Стеклянные банки" : "jars" , "Контейнеры" : "containers" , "Коробки" : "box"]
+        /*   let photo:[String : String] = [ "Батарейки" : "battery" , "Бумага" : "paper" , "Техника" : "technic" , "Бутылки" : "kitchenbottles", "Бутылки " : "bathbottles" , "Одежда в плохом состоянии" : "badclothes" , "Одежда в хорошем состоянии" : "goodclothes" , "Стеклянные банки" : "jars" , "Контейнеры" : "containers" , "Коробки" : "box"]*/
         
         
         
         ScrollView(.vertical, showsIndicators: false)  {
-                MapView(coordinate: coordinate, hint: hint)
-                    .edgesIgnoringSafeArea(.top)
-                    .frame(height: 450)
-                
-                
-                CircleImage(image: Image(photo[garbage]!))
-                    .offset(x: 0, y: -60)
-                    .padding(.bottom, -70)
-                
-                    
-                    Text(garbage)
-                        .font(.title)
-                        .padding(.top, 140)
+            MapView(coordinate: coordinate, hint: hint)
+                .edgesIgnoringSafeArea(.top)
+                .frame(height: 450)
             
             
-                    Text(result)
-                        .font(.subheadline)
-                        .onAppear {
-                            garbageInfo.getInfo(path: garbage) { resultString in
-                                result = resultString.replacingOccurrences(of: "_n", with: "\n")
-                            }
-                        }
-                        .padding()
-                
+            CircleImage(image: garbage)
+                .offset(x: 0, y: -60)
+                .padding(.bottom, -70)
+            
+            
+            Text(garbage)
+                .font(.title)
+                .padding(.top, 140)
+            
+            
+            Text(result)
+                .font(.subheadline)
+                .onAppear {
+                    garbageInfo.getInfo(path: garbage) { resultString in
+                        result = resultString.replacingOccurrences(of: "_n", with: "\n")
+                    }
+                }
+                .padding()
+            
             
         }.padding(.top, -20)
         .onAppear(){

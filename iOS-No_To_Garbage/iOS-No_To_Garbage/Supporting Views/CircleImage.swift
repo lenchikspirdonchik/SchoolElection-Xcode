@@ -6,38 +6,41 @@
 //
 
 import SwiftUI
-
+import FirebaseStorage
 struct CircleImage: View {
-    var image:Image
-    
+    var image:String
+    @State var imageI:UIImage = UIImage(imageLiteralResourceName: "logo")
     
     var body: some View {
         
-        /* image
-         .resizable()
-         .clipShape(Circle())
-         .overlay(Circle().stroke(Color.white, lineWidth: 4))
-         .shadow(radius: 10)
-         .frame(width: 200, height: 200, alignment: .center)*/
         
         if #available(iOS 14.0, *) {
             GeometryReader{ proxy in
                 VStack{
                     TabView{
-                        ForEach (0..<7){number in
-                            Image("\(number)")
-                                .resizable()
-                                .scaledToFill()
-                                .clipShape(Circle())
-                                .overlay(Circle().stroke(Color.white, lineWidth: 4))
-                                .shadow(radius: 10)
-                                .frame(width: 200, height: 200, alignment: .center)
-                            
-                        }
+                        
+                        
+                        
+                        
+                        // ForEach (0..<7){number in
+                        Image(uiImage: imageI)
+                            //Image("\(number)")
+                            .resizable()
+                            .scaledToFill()
+                            .clipShape(Circle())
+                            .overlay(Circle().stroke(Color.white, lineWidth: 4))
+                            .shadow(radius: 10)
+                            .frame(width: 200, height: 200, alignment: .center)
+                        
+                        //  }
                     }.tabViewStyle(PageTabViewStyle())
                     .padding()
                     //.frame(width: 200, height: 200, alignment: .center)
                     //.frame(width: proxy.size.width, height: proxy.size.height / 2)
+                }
+            }.onAppear{
+                GetPhoto().getPhoto(image: image) { (image) in
+                    imageI = image
                 }
             }
         } else {
@@ -53,6 +56,6 @@ struct CircleImage: View {
 
 struct CircleImage_Previews: PreviewProvider {
     static var previews: some View {
-        CircleImage(image: Image("jars"))
+        CircleImage(image: "jars")
     }
 }
