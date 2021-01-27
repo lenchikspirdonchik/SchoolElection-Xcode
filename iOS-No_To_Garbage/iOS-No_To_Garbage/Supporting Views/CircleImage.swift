@@ -9,8 +9,7 @@ import SwiftUI
 import FirebaseStorage
 struct CircleImage: View {
     var image:String
-    @State var imageI:UIImage = UIImage(imageLiteralResourceName: "logo")
-    
+    @State var imageI:[UIImage] = [UIImage(imageLiteralResourceName: "logo")]
     var body: some View {
         
         
@@ -19,24 +18,20 @@ struct CircleImage: View {
                 VStack{
                     TabView{
                         
-                        
-                        
-                        
-                        // ForEach (0..<7){number in
-                        Image(uiImage: imageI)
-                            //Image("\(number)")
-                            .resizable()
-                            .scaledToFill()
-                            .clipShape(Circle())
-                            .overlay(Circle().stroke(Color.white, lineWidth: 4))
-                            .shadow(radius: 10)
-                            .frame(width: 200, height: 200, alignment: .center)
-                        
-                        //  }
-                    }.tabViewStyle(PageTabViewStyle())
+                        ForEach (imageI, id: \.self){myUiImage in
+                            Image(uiImage: myUiImage)
+                                .resizable()
+                                .scaledToFill()
+                                .clipShape(Circle())
+                                .overlay(Circle().stroke(Color.white, lineWidth: 4))
+                                .shadow(radius: 10)
+                                .frame(width: 200, height: 200, alignment: .center)
+                            
+                        }
+                    }
+                    .tabViewStyle(PageTabViewStyle())
                     .padding()
-                    //.frame(width: 200, height: 200, alignment: .center)
-                    //.frame(width: proxy.size.width, height: proxy.size.height / 2)
+                    
                 }
             }.onAppear{
                 GetPhoto().getPhoto(image: image) { (image) in
