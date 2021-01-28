@@ -52,6 +52,17 @@ struct CategoryHome: View {
                     Text("Посмотреть все")
                 }
                 
+                NavigationLink( destination:  AllGarbageMap()) {
+                    Text( "Все мусорки города")
+                }
+                
+                NavigationLink( destination: AddImage()) {
+                    Text("Добавить фотографию")
+                }
+                
+                NavigationLink( destination: Statistics()) {
+                    Text("Статистика")
+                }
                 NavigationLink( destination: SignIn()) {
                     Text("Войти в личный кабинет")
                 }

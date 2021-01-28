@@ -34,7 +34,7 @@ struct CircleImage: View {
                     
                 }
             }.onAppear{
-                GetPhoto().getPhoto(image: image) { (image) in
+                GetPhoto().getPhoto(path: image) { (image) in
                     imageI = image
                 }
             }

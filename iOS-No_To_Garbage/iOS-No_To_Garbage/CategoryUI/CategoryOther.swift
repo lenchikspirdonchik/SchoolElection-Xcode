@@ -36,6 +36,15 @@ struct CategoryOther: View {
                         OtherCategoryItem(garbage: "Все мусорки города")
                     }
                     
+                    
+                    NavigationLink(
+                        destination: AddImage()
+                    ) {
+                        OtherCategoryItem(garbage: "Добавить фотографию")
+                    }
+                    
+                    
+                    
                     NavigationLink(
                         destination: AddGarbageMap()
                     ) {
@@ -60,7 +69,7 @@ struct OtherCategoryItem: View {
     var garbage:String
     var body: some View {
         
-        let photo:[String : String] = [ "Статистика" : "statistics" , "Выкинуть мусор" : "addGarbage" , "Все мусорки города" : "allGarbage"]
+        let photo:[String : String] = [ "Статистика" : "statistics" , "Выкинуть мусор" : "addGarbage" , "Все мусорки города" : "allGarbage", "Добавить фотографию" : "addGarbage"]
         
         VStack(alignment: .leading) {
             Image(photo[garbage]!)

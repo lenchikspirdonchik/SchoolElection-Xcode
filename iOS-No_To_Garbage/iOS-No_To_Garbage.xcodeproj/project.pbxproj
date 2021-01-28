@@ -16,6 +16,8 @@
 		843C54CC25A8EA8A008627FA /* AboutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C54CB25A8EA8A008627FA /* AboutApp.swift */; };
 		846275CF25C0A4FF00D3361F /* GetPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846275CE25C0A4FF00D3361F /* GetPhoto.swift */; };
 		847A711C259286E7006E8AA7 /* getStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A711B259286E7006E8AA7 /* getStatistics.swift */; };
+		8486A66225C345BD00B47487 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8486A66125C345BD00B47487 /* ImagePicker.swift */; };
+		8486A66525C346EF00B47487 /* AddImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8486A66425C346EF00B47487 /* AddImage.swift */; };
 		849117A32549D3680008F977 /* GetProfileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849117A22549D3680008F977 /* GetProfileInfo.swift */; };
 		849117A72549D9F30008F977 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849117A62549D9F30008F977 /* SignIn.swift */; };
 		84CA150E255B29FC00E71E9F /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CA150D255B29FC00E71E9F /* SignUp.swift */; };
@@ -53,6 +55,8 @@
 		843C54CB25A8EA8A008627FA /* AboutApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutApp.swift; sourceTree = "<group>"; };
 		846275CE25C0A4FF00D3361F /* GetPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPhoto.swift; sourceTree = "<group>"; };
 		847A711B259286E7006E8AA7 /* getStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getStatistics.swift; sourceTree = "<group>"; };
+		8486A66125C345BD00B47487 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		8486A66425C346EF00B47487 /* AddImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImage.swift; sourceTree = "<group>"; };
 		849117A22549D3680008F977 /* GetProfileInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProfileInfo.swift; sourceTree = "<group>"; };
 		849117A62549D9F30008F977 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
 		84CA150D255B29FC00E71E9F /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
@@ -125,6 +129,7 @@
 				843C54CB25A8EA8A008627FA /* AboutApp.swift */,
 				841F85FE25A9B75000F94B9F /* AddGarbageMap.swift */,
 				B052A5DF25BCA89A00770AA3 /* Test.swift */,
+				8486A66425C346EF00B47487 /* AddImage.swift */,
 			);
 			path = CategoryUI;
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 				84FDFB8B257429F5000B1F67 /* AddgarbageToBase.swift */,
 				847A711B259286E7006E8AA7 /* getStatistics.swift */,
 				846275CE25C0A4FF00D3361F /* GetPhoto.swift */,
+				8486A66125C345BD00B47487 /* ImagePicker.swift */,
 			);
 			path = Backend;
 			sourceTree = "<group>";
@@ -360,12 +366,14 @@
 				84D8E4E3253CDAAA00E0398A /* GarbageDetail.swift in Sources */,
 				84FF81C9257828C900DE8A7C /* Statistics.swift in Sources */,
 				84FCEBA72548B80E00A6564B /* Home.swift in Sources */,
+				8486A66525C346EF00B47487 /* AddImage.swift in Sources */,
 				841F85FF25A9B75000F94B9F /* AddGarbageMap.swift in Sources */,
 				84F8554B253DDB2D0037E5D0 /* GetGarbageInfo.swift in Sources */,
 				840E32502567105B002B2DBF /* CategoryOther.swift in Sources */,
 				849117A32549D3680008F977 /* GetProfileInfo.swift in Sources */,
 				84D8E4C8253CD00A00E0398A /* iOS_No_To_Garbage.xcdatamodeld in Sources */,
 				84FCEBB02548BEFD00A6564B /* ProfileHost.swift in Sources */,
+				8486A66225C345BD00B47487 /* ImagePicker.swift in Sources */,
 				84D8E4E9253CE9FD00E0398A /* GarbageList.swift in Sources */,
 				8410ADCD25A1275000928AA8 /* AllGarbageMap.swift in Sources */,
 				84D8E4E0253CD79B00E0398A /* CircleImage.swift in Sources */,
