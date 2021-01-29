@@ -35,26 +35,26 @@ struct CategoryOther: View {
                     ) {
                         OtherCategoryItem(garbage: "Все мусорки города")
                     }
-                    
-                    
+                     
                     NavigationLink(
                         destination: AddImage()
                     ) {
                         OtherCategoryItem(garbage: "Добавить фотографию")
                     }
                     
-                    
-                    
-                    NavigationLink(
+                   /* NavigationLink(
                         destination: AddGarbageMap()
                     ) {
+                        //OtherCategoryItem(garbage: "Добавить мусорку на карту")
                         OtherCategoryItem(garbage: "Все мусорки города")
                     }
-                    NavigationLink(
+                   */
+                    
+                    /*NavigationLink(
                         destination: Test()
                     ) {
                         OtherCategoryItem(garbage: "Все мусорки города")
-                    }
+                    }*/
                     
                 }
             }

@@ -19,8 +19,9 @@ struct AddGarbageMap: UIViewRepresentable {
         annotation.subtitle = "Hint"
         annotation.coordinate = CLLocationCoordinate2D(latitude: 60.0108, longitude: 30.2802)
         uiView.addAnnotation(annotation)
+        
     }
-    
+
     
     
     

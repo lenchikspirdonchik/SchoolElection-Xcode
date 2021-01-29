@@ -13,31 +13,38 @@ struct AddImage: View {
     @State private var image: Image?
     @State private var filterIntensity = 0.5
     @State var showAlert = false
+    @State var showcamera = false
     @State var showGoodAlert = false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     let category:[String] = ["Батарейки", "Бумага", "Техника", "Бутылки", "Одежда в плохом состоянии", "Одежда в хорошем состоянии", "Стеклянные банки", "Контейнеры", "Коробки"]
     @State private var selected = 0
     var body: some View {
-        //  NavigationView {
         VStack {
             ZStack {
                 Rectangle()
-                    .fill(Color.secondary)
+                    .fill(Color.white)
                 
                 if  image !=  nil {
                     image?
                         .resizable()
                         .scaledToFit()
                 } else {
-                    Text("Нажмите, чтобы выбрать фотографию")
-                        .foregroundColor(.white)
-                        .font(.headline)
+                    HStack{
+                        Button("Добавить из галереи") {
+                            self.showcamera = false
+                            self.showingImagePicker = true
+                        }
+                        
+                        Button("Сделать снимок"){
+                            self.showcamera = true
+                            self.showingImagePicker = true
+                        }
+                    }
+                    
                 }
             }
             .padding(.horizontal, 5)
-            .onTapGesture {
-                self.showingImagePicker = true
-            }
+            
             
             Picker(selection: $selected, label: Text("")) {
                 ForEach(0 ..< category.count) {
@@ -48,16 +55,17 @@ struct AddImage: View {
             .clipped()
             
             HStack {
-                //Button("Change Filter") { change filter}
+                
                 
                 Spacer()
                 
                 Button("Добавить") {
-     
-                    GetPhoto().setPhoto(path: category[selected], image: inputImage!) { (result) in
-                        print(result)
-                        showGoodAlert = result
-                        self.showAlert.toggle()
+                    if (inputImage != nil){
+                        GetPhoto().setPhoto(path: category[selected], image: inputImage!) { (result) in
+                            print(result)
+                            showGoodAlert = result
+                            self.showAlert.toggle()
+                        }
                     }
                 }
                 .alert(isPresented: $showAlert) { () -> Alert in
@@ -79,15 +87,19 @@ struct AddImage: View {
                         return Alert(title: Text("Произошла ошибка("), message: Text("Повторим еще раз?"), primaryButton: primaryButton, secondaryButton: secondaryButton)
                     }
                 }
-                Spacer()
+                Spacer(minLength: 10)
             }
         }
         .padding([.horizontal, .bottom])
         .navigationBarTitle("Добавить картинку")
         .sheet(isPresented: $showingImagePicker, onDismiss: loadImage) {
-            ImagePicker(image: self.$inputImage)
+            if (showcamera){
+                ImagePicker(image: self.$inputImage, sourceType: UIImagePickerController.SourceType.camera)
+            }else{
+                ImagePicker(image: self.$inputImage, sourceType: UIImagePickerController.SourceType.photoLibrary)
+            }
         }
-        //}
+        
     }
     func loadImage() {
         guard let inputImage = inputImage else { return }

@@ -32,7 +32,7 @@ class GetPhoto{
             let size = metadata.size
             print(size)
             completion(true)
-          
+            
         }
         
         
