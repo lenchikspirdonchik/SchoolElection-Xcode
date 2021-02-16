@@ -61,10 +61,6 @@ class GetPhoto{
                         let image = UIImage(data: data!)
                         if image != nil{
                             imageArray.append(image!)
-                            print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
-                            print("count = \( result.items.count)")
-                            print("imageArray.count = \(imageArray.count)")
-                            print("number = \(number)")
                             if number ==  result.items.count{
                                 completion(imageArray)
                             }

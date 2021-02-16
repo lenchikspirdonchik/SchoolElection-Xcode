@@ -42,19 +42,18 @@ struct CategoryOther: View {
                         OtherCategoryItem(garbage: "Добавить фотографию")
                     }
                     
-                   /* NavigationLink(
+                    NavigationLink(
                         destination: AddGarbageMap()
                     ) {
-                        //OtherCategoryItem(garbage: "Добавить мусорку на карту")
-                        OtherCategoryItem(garbage: "Все мусорки города")
+                        OtherCategoryItem(garbage: "Добавить мусорку на карту")
                     }
-                   */
+                
                     
-                    /*NavigationLink(
+                    NavigationLink(
                         destination: Test()
                     ) {
-                        OtherCategoryItem(garbage: "Все мусорки города")
-                    }*/
+                        OtherCategoryItem(garbage: "Тестовая страница")
+                    }
                     
                 }
             }
@@ -69,7 +68,7 @@ struct OtherCategoryItem: View {
     var garbage:String
     var body: some View {
         
-        let photo:[String : String] = [ "Статистика" : "statistics" , "Выкинуть мусор" : "addGarbage" , "Все мусорки города" : "allGarbage", "Добавить фотографию" : "addGarbage"]
+        let photo:[String : String] = [ "Статистика" : "statistics" , "Выкинуть мусор" : "addGarbage" , "Все мусорки города" : "allGarbage", "Добавить фотографию" : "addGarbage", "Добавить мусорку на карту" : "addGarbage", "Тестовая страница": "logo"]
         
         VStack(alignment: .leading) {
             Image(photo[garbage]!)

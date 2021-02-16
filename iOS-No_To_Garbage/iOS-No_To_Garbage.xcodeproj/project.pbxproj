@@ -11,6 +11,8 @@
 		840E32502567105B002B2DBF /* CategoryOther.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E324F2567105B002B2DBF /* CategoryOther.swift */; };
 		840E3257256713CE002B2DBF /* AddGarbage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E3256256713CE002B2DBF /* AddGarbage.swift */; };
 		8410ADCD25A1275000928AA8 /* AllGarbageMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8410ADCC25A1275000928AA8 /* AllGarbageMap.swift */; };
+		8418320225DC586500908C6A /* PostgresClientKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8418320125DC586500908C6A /* PostgresClientKit */; };
+		8418320625DC596900908C6A /* GetFromSQL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418320525DC596900908C6A /* GetFromSQL.swift */; };
 		841C9604257977C700ACF671 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 841C9603257977C700ACF671 /* SwiftUICharts */; };
 		841F85FF25A9B75000F94B9F /* AddGarbageMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841F85FE25A9B75000F94B9F /* AddGarbageMap.swift */; };
 		843C54CC25A8EA8A008627FA /* AboutApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843C54CB25A8EA8A008627FA /* AboutApp.swift */; };
@@ -82,6 +84,7 @@
 		840E324F2567105B002B2DBF /* CategoryOther.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryOther.swift; sourceTree = "<group>"; };
 		840E3256256713CE002B2DBF /* AddGarbage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGarbage.swift; sourceTree = "<group>"; };
 		8410ADCC25A1275000928AA8 /* AllGarbageMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGarbageMap.swift; sourceTree = "<group>"; };
+		8418320525DC596900908C6A /* GetFromSQL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFromSQL.swift; sourceTree = "<group>"; };
 		841F85FE25A9B75000F94B9F /* AddGarbageMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGarbageMap.swift; sourceTree = "<group>"; };
 		843C54CB25A8EA8A008627FA /* AboutApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutApp.swift; sourceTree = "<group>"; };
 		8452C46925C497D100F34393 /* WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +144,7 @@
 				841C9604257977C700ACF671 /* SwiftUICharts in Frameworks */,
 				8406B60525782D5900E110AE /* SunburstDiagram in Frameworks */,
 				E5921D452514D54D955831EA /* Pods_iOS_No_To_Garbage.framework in Frameworks */,
+				8418320225DC586500908C6A /* PostgresClientKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +277,7 @@
 				847A711B259286E7006E8AA7 /* getStatistics.swift */,
 				846275CE25C0A4FF00D3361F /* GetPhoto.swift */,
 				8486A66125C345BD00B47487 /* ImagePicker.swift */,
+				8418320525DC596900908C6A /* GetFromSQL.swift */,
 			);
 			path = Backend;
 			sourceTree = "<group>";
@@ -334,6 +339,7 @@
 			packageProductDependencies = (
 				8406B60425782D5900E110AE /* SunburstDiagram */,
 				841C9603257977C700ACF671 /* SwiftUICharts */,
+				8418320125DC586500908C6A /* PostgresClientKit */,
 			);
 			productName = "iOS-No_To_Garbage";
 			productReference = 84D8E4BD253CD00A00E0398A /* iOS-No_To_Garbage.app */;
@@ -368,6 +374,7 @@
 			packageReferences = (
 				8406B60325782D5900E110AE /* XCRemoteSwiftPackageReference "SwiftSunburstDiagram" */,
 				841C9602257977C700ACF671 /* XCRemoteSwiftPackageReference "ChartView" */,
+				8418320025DC586500908C6A /* XCRemoteSwiftPackageReference "PostgresClientKit" */,
 			);
 			productRefGroup = 84D8E4BE253CD00A00E0398A /* Products */;
 			projectDirPath = "";
@@ -475,6 +482,7 @@
 				840E32502567105B002B2DBF /* CategoryOther.swift in Sources */,
 				849117A32549D3680008F977 /* GetProfileInfo.swift in Sources */,
 				84D8E4C8253CD00A00E0398A /* iOS_No_To_Garbage.xcdatamodeld in Sources */,
+				8418320625DC596900908C6A /* GetFromSQL.swift in Sources */,
 				84FCEBB02548BEFD00A6564B /* ProfileHost.swift in Sources */,
 				8486A66225C345BD00B47487 /* ImagePicker.swift in Sources */,
 				84D8E4E9253CE9FD00E0398A /* GarbageList.swift in Sources */,
@@ -761,6 +769,14 @@
 				minimumVersion = 1.1.0;
 			};
 		};
+		8418320025DC586500908C6A /* XCRemoteSwiftPackageReference "PostgresClientKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/codewinsdotcom/PostgresClientKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.1;
+			};
+		};
 		841C9602257977C700ACF671 /* XCRemoteSwiftPackageReference "ChartView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AppPear/ChartView";
@@ -776,6 +792,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8406B60325782D5900E110AE /* XCRemoteSwiftPackageReference "SwiftSunburstDiagram" */;
 			productName = SunburstDiagram;
+		};
+		8418320125DC586500908C6A /* PostgresClientKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8418320025DC586500908C6A /* XCRemoteSwiftPackageReference "PostgresClientKit" */;
+			productName = PostgresClientKit;
 		};
 		841C9603257977C700ACF671 /* SwiftUICharts */ = {
 			isa = XCSwiftPackageProductDependency;

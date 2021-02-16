@@ -6,31 +6,28 @@
 //
 
 import SwiftUI
-
+import FirebaseAuth
 struct Test: View {
-    let countNumber = 7
+   @State var text = "Загрузка"
     var body: some View {
-        if #available(iOS 14.0, *) {
-            GeometryReader{ proxy in
-            TabView{
-                ForEach (0..<countNumber){number in
-                    Image("\(number)")
-                        .resizable()
-                        .scaledToFit()
-                    
+        
+        
+        
+       Text(text)
+        .onAppear{
+            let user = currUser()
+            if (user != nil){
+                GetFromSQL().getFromSQL(uuid: user!.uid, category: "Батарейки") { (result) in
+                    text = result
                 }
-            }.tabViewStyle(PageTabViewStyle())
-            .padding()
-            .clipShape(RoundedRectangle(cornerRadius: 25))
-            .frame(width: 200, height: 200, alignment: .center)
-           // .frame(width: proxy.size.width, height: proxy.size.height / 2)
             }
-        } else {
-            // Fallback on earlier versions
         }
     }
 }
-
+func currUser() -> User? {
+    let user = Auth.auth().currentUser
+    return user
+}
 
 struct Test_Previews: PreviewProvider {
     static var previews: some View {
