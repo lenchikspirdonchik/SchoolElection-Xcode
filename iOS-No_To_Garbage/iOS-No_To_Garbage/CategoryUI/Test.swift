@@ -18,7 +18,7 @@ struct Test: View {
             let user = currUser()
             if (user != nil){
                 GetFromSQL().getFromSQL(uuid: user!.uid, category: "Батарейки") { (result) in
-                    text = result
+                  //  text = result
                 }
             }
         }

@@ -12,29 +12,69 @@ import FirebaseAuth
 struct Statistics: View {
     @State var numbers:[(String,Double)] = []
     @State var text = "Загрузка"
+    @State var result = [""]
+    @State private var selected = 0
+    let category:[String] = ["Батарейки", "Бумага", "Техника", "Бутылки", "Одежда в плохом состоянии", "Одежда в хорошем состоянии", "Стеклянные банки", "Контейнеры", "Коробки"]
     var body: some View {
         VStack {
-            Text(text).bold()
-            if !numbers.isEmpty{
-                BarChartView(data: ChartData(values: numbers), title: "Статистика", legend: "Так держать!", form: ChartForm.extraLarge).padding(.horizontal, 50)
+            ScrollView{
+                Text(text).bold()
+                if !numbers.isEmpty{
+                    BarChartView(data: ChartData(values: numbers), title: "Статистика", legend: "Так держать!", form: ChartForm.medium).padding(.horizontal, 50)
+                    
+                }
+                Spacer()
+                VStack{
+                Picker(selection: $selected, label: Text("")) {
+                    ForEach(0 ..< category.count) {
+                        Text(self.category[$0])
+                    }
+                }
+                .frame(height: 100)
+                .clipped()
+                .onTapGesture {
+                    let user = currUser()
+                    if (user != nil){
+                        /*GetFromSQL().getFromSQL(uuid: user!.uid, category: category[selected]) { (res) in
+                            result = res
+                        }*/
+                    }
+                }
+              
+                List{
+                    Text("text")
+                    ForEach(result, id: \.self) { key in
+                        
+                        Text(key)
+                    }
+                }.onAppear{
+                    let user = currUser()
+                    if (user != nil){
+                        GetFromSQL().getFromSQL(uuid: user!.uid, category: category[selected]) { (res) in
+                            result = res
+                        }
+                    }
+                }
                 
+                }
+            }
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now()){
+                    let myUid = currUser()?.uid
+                    if (myUid != nil){
+                        getStatistics().getGarbage(uid: myUid!) { (done) in
+                            text = ""
+                            numbers = done
+                        }
+                    }
+                    else{
+                        text = "Для начало нужно войти в аккаунт"
+                    }
+                }
             }
         }
         
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now()){
-                let myUid = currUser()?.uid
-                if (myUid != nil){
-                    getStatistics().getGarbage(uid: myUid!) { (done) in
-                        text = ""
-                        numbers = done
-                    }
-                }
-                else{
-                    text = "Для начало нужно войти в аккаунт"
-                }
-            }
-        }
+        
     }
     
     
