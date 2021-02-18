@@ -10,7 +10,7 @@ import FirebaseDatabase
 
 
 class getStatistics {
-    let category:[String] = ["Батарейки", "Бумага", "Техника", "Бутылки", "Одежда в плохом состоянии", "Одежда в хорошем состоянии", "Стеклянные банки", "Контейнеры", "Коробки"]
+    let category:[String] = ["Батарейки", "Бумага", "Бутылки", "Стеклянные банки", "Контейнеры", "Коробки"]
     
     func getGarbage(uid:String, completion: @escaping ([(String,Double)]) -> Void) {
         let rootReference = Database.database().reference()

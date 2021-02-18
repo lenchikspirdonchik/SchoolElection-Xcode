@@ -36,6 +36,7 @@ class GetFromSQL {
                 print(res)
                 result.append(res)
             }
+            statement.close()
             completion(result)
         } catch {
             print(error) // better error handling goes here

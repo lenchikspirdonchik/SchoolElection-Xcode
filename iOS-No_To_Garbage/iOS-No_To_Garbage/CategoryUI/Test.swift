@@ -8,17 +8,22 @@
 import SwiftUI
 import FirebaseAuth
 struct Test: View {
-   @State var text = "Загрузка"
+    @State var result:[String]=[]
     var body: some View {
         
         
         
-       Text(text)
-        .onAppear{
+        List{
+            Text("text")
+            ForEach(result, id: \.self) { key in
+                
+                Text(key)
+            }
+        }.onAppear{
             let user = currUser()
             if (user != nil){
-                GetFromSQL().getFromSQL(uuid: user!.uid, category: "Батарейки") { (result) in
-                  //  text = result
+                GetFromSQL().getFromSQL(uuid: user!.uid, category: "Бутылки") { (res) in
+                    result = res
                 }
             }
         }
