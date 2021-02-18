@@ -34,7 +34,7 @@ struct Statistics: View {
             .clipped()
             .onTapGesture {
                 if (user != nil){
-                    GetFromSQL().getFromSQL(uuid: user!.uid, category: category[selected]) { (res) in
+                    GetFromSQL().getSQLStatistics(uuid: user!.uid, category: category[selected]) { (res) in
                         result.removeAll()
                         result = res
                     }

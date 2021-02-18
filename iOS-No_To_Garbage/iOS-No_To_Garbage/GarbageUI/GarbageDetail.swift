@@ -7,7 +7,6 @@
 
 import SwiftUI
 import MapKit
-import FirebaseDatabase
 
 struct GarbageDetail: View {
     
@@ -15,9 +14,7 @@ struct GarbageDetail: View {
     let garbageInfo = GetGarbageInfo()
     let mapInfo = GetMapInfo()
     @State var result = "Загрузка. Пожалуйста подожди("
-    @State var result2 = "Заг подожди("
-    @State var coordinate = [CLLocationCoordinate2D(latitude: 0.00, longitude: 0.00)]
-    @State var hint = ["загрузка"]
+    @State var resArray = [(CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0), "Загрузка", "Загрузка")]
     var body: some View {
         
         
@@ -26,9 +23,19 @@ struct GarbageDetail: View {
         
         
         ScrollView(.vertical, showsIndicators: false)  {
-            MapView(coordinate: coordinate, hint: hint)
+            MapView(resArray: resArray)
                 .edgesIgnoringSafeArea(.top)
                 .frame(height: 450)
+                .onAppear{
+                    var realPath = garbage
+                    if garbage == "Бутылки "{
+                        realPath = "Бутылки"
+                    }
+                    let text = "SELECT * FROM no2garbage_map WHERE category = '\(realPath)';"
+                    GetMapInfo().getMap(path: text) { (resArr) in
+                        resArray = resArr
+                    }
+                }
             
             
             CircleImage(image: garbage)
@@ -52,18 +59,6 @@ struct GarbageDetail: View {
             
             
         }.padding(.top, -20)
-        .onAppear(){
-            mapInfo.getNumber(path: garbage) { (number) in
-                mapInfo.getHint(path: garbage, trueMapNumber: number) { (resArr) in
-                    hint = resArr
-                }
-                mapInfo.getMap(path: garbage, trueMapNumber: number) { (pointArr) in
-                    coordinate = pointArr
-                }
-                
-            }
-        }
-        
         
     }
     

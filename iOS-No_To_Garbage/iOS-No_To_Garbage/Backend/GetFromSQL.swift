@@ -8,7 +8,7 @@
 import Foundation
 import PostgresClientKit
 class GetFromSQL {
-    func getFromSQL(uuid:String, category:String, completion: @escaping ([String]) -> Void) {
+    func getSQLStatistics(uuid:String, category:String, completion: @escaping ([String]) -> Void) {
         var result: [String] = []
         do {
             var configuration = PostgresClientKit.ConnectionConfiguration()
@@ -42,4 +42,6 @@ class GetFromSQL {
             print(error) // better error handling goes here
         }
     }
+    
+    
 }

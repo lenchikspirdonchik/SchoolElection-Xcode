@@ -6,28 +6,45 @@
 //
 
 import Foundation
-import FirebaseDatabase
+import PostgresClientKit
 
 
 class getStatistics {
-    let category:[String] = ["Батарейки", "Бумага", "Бутылки", "Стеклянные банки", "Контейнеры", "Коробки"]
-    
+  
     func getGarbage(uid:String, completion: @escaping ([(String,Double)]) -> Void) {
-        let rootReference = Database.database().reference()
+
         var points: [(String,Double)] = []
-        let garbageReference = rootReference.child("Users").child(uid).child("Garbage")
-        
-        for i in 0...self.category.count-1{
-            let databaseReference = garbageReference.child(self.category[i])
-            databaseReference.observeSingleEvent(of: .value) { (DataSnapshot) in
-                let count = DataSnapshot.value as! String
-                points.append((self.category[i],  Double(count) ?? 0.0))
-                if (points.count == self.category.count){
-                    completion(points)
-                }
-            }
+        do {
+            var configuration = PostgresClientKit.ConnectionConfiguration()
+            configuration.host = "ec2-108-128-104-50.eu-west-1.compute.amazonaws.com"
+            configuration.database = "dvvl3t4j8k5q7"
+            configuration.user = "mpzdfkfaoiwywz"
+            configuration.credential = .md5Password(password: "c37ce7e3b99d480a04b8943b89ba6e7abb94cb86c56bfa4c6ace4fab4cbc287d")
             
+            let connection = try PostgresClientKit.Connection(configuration: configuration)
+            defer { connection.close() }
+            
+            let text = "select category, SUM(amount) from no2garbage where uuid = '\(uid)' group by category"
+            let statement = try connection.prepareStatement(text: text)
+            defer { statement.close() }
+            
+            let cursor = try statement.execute()
+            defer { cursor.close() }
+            
+            for row in cursor {
+                let columns = try row.get().columns
+                let category = try columns[0].string()
+                let amount = try columns[1].string()
+
+                points.append((category, Double(amount) ?? 0.0))
+            }
+            statement.close()
+            completion(points)
+        } catch {
+            print(error)
         }
+        
     }
+    
 }
 

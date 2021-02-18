@@ -8,26 +8,23 @@
 import SwiftUI
 import MapKit
 struct MapView: UIViewRepresentable {
-    
-    var coordinate: [CLLocationCoordinate2D]
-    var hint:[String]
+    var resArray: [(CLLocationCoordinate2D, String, String)]
     func makeUIView(context: Context) -> MKMapView {
         MKMapView(frame: .zero)
     }
     
     func updateUIView(_ uiView: MKMapView, context: Context) {
         let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
-        let region = MKCoordinateRegion(center: coordinate[coordinate.count-1], span: span)
+        let region = MKCoordinateRegion(center: resArray[0].0, span: span)
         uiView.setRegion(region, animated: true)
-        for i in 0...coordinate.count-1{
-            print(coordinate.count)
-            print(hint)
-            print(coordinate)
+        for i in 0...resArray.count-1{
+            let coordinate = resArray[i].0
+            let hint = resArray[i].2
             let annotation = MKPointAnnotation()
-            annotation.title = hint[i]
-            annotation.subtitle = hint[i]
-            annotation.coordinate = coordinate[i]
+            annotation.title = hint
+            annotation.coordinate = coordinate
             uiView.addAnnotation(annotation)
+            
         }
         
         
@@ -36,8 +33,6 @@ struct MapView: UIViewRepresentable {
 
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        let coordinate = [CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)]
-        let hint = ["hint 0"]
-        MapView(coordinate: coordinate, hint: hint)
+        MapView(resArray: [(CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0), "Загрузка", "Загрузка")])
     }
 }
