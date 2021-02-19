@@ -33,12 +33,9 @@ struct AddGarbage: View {
                 
                 
                 HStack{
-                    if #available(iOS 14.0, *) {
-                        Label("Количество       ", systemImage: "plus")
-                    } else {
-                        // Fallback on earlier versions
-                         Text("Количество       ")
-                    }
+                    
+                    Label("Количество       ", systemImage: "plus")
+                    
                     Text(String(sum))
                     Stepper("", value: $sum, in: 1...20)
                 }.padding()
@@ -48,11 +45,14 @@ struct AddGarbage: View {
                 
                 
                 Button(action: {
-                    AddGarbageToBase().add(uid: currUser()!.uid, garbage: category[selected], garCount: sum) { (isTrue) in
+                    let date = Date()
+                    let text = "insert into no2garbage (uuid, date, category, amount)\n VALUES ('\(currUser()!.uid)', date('\(date.get(.month))/\(date.get(.day))/\(date.get(.year))'), '\(category[selected])', \(sum));"
+                    
+                    AddGarbageToBase().add(text: text) { (isTrue) in
                         showGoodAlert = isTrue
                         self.showAlert.toggle()
                     }
-                   
+                    
                 }) {
                     HStack {
                         Spacer()

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import PostgresClientKit
 struct SignUp: View {
     @State private var email = ""
     @State private var password = ""
@@ -194,15 +195,17 @@ class CreatUser{
     
     
     func createGarbageInDatabase(){
-        print("in createGarbageInDatabase")
-        let rootReference = Database.database().reference()
         let user2 = Auth.auth().currentUser
-        let garbageReference = rootReference.child("Users").child(user2!.uid).child("Garbage")
+        let date = Date()
+        
         for i in 0...category.count-1{
-            print("in for createGarbageInDatabase. i = \(i)")
-            let databaseReference = garbageReference.child(category[i])
-            databaseReference.setValue("0")
+            let text = "insert into no2garbage (uuid, date, category, amount)\n VALUES ('\(user2!.uid)', date('\(date.get(.month))/\(date.get(.day))/\(date.get(.year))'), '\(category[i])', 1);"
+            
+            AddGarbageToBase().add(text: text) { (isTrue) in
+                print(isTrue)
+            }
         }
+        
     }
     
     func saveNameInDatabase(name:String) {

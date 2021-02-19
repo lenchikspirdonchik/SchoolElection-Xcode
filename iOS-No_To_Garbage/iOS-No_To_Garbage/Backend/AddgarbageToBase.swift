@@ -8,20 +8,28 @@
 import Foundation
 import Firebase
 import FirebaseDatabase
-
+import PostgresClientKit
 class AddGarbageToBase {
-    func add(uid: String, garbage:String, garCount:Int, completion: @escaping (Bool) -> Void) {
-        let rootReference = Database.database().reference()
-        let garbageReference = rootReference.child("Users").child(uid).child("Garbage").child(garbage)
-        
-        garbageReference.observeSingleEvent(of: .value) { (DataSnapshot) in
-            let kolvoString = DataSnapshot.value as? String ?? "0"
-            var count = Int(kolvoString)
-            if (count != nil && garCount>0){
-                count! += garCount
-                garbageReference.setValue(String(count!))
-                completion(true)
-            }
+    func add(text:String, completion: @escaping (Bool) -> Void) {
+        do {
+            var configuration = PostgresClientKit.ConnectionConfiguration()
+            configuration.host = "ec2-108-128-104-50.eu-west-1.compute.amazonaws.com"
+            configuration.database = "dvvl3t4j8k5q7"
+            configuration.user = "mpzdfkfaoiwywz"
+            configuration.credential = .md5Password(password: "c37ce7e3b99d480a04b8943b89ba6e7abb94cb86c56bfa4c6ace4fab4cbc287d")
+            
+            let connection = try PostgresClientKit.Connection(configuration: configuration)
+            defer { connection.close() }
+            let statement = try connection.prepareStatement(text: text)
+            defer { statement.close() }
+            
+            let cursor = try statement.execute()
+            completion(true)
+            do { cursor.close() }
+        } catch {
+            print(error)
+            completion(false)
         }
+        
     }
 }

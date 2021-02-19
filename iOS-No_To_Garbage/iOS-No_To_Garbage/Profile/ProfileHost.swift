@@ -42,20 +42,34 @@ struct ProfileHost: View {
                 }
             }
             .onAppear(){
-                database.getGarbage(uid: user!.uid) { result in
+                let text = "select category, SUM(amount) from no2garbage where uuid = '\(user!.uid)' group by category"
+                database.getGarbage(text: text) { result in
                     category = result
-                    print(category)
                 }
             }
             
-
+            
             
             Button("Обнулить статистику"){
-                database.delGarbage(uid: user!.uid)
-                self.presentationMode.wrappedValue.dismiss()
+                let category:[String] = ["Батарейки", "Бумага", "Техника", "Бутылки", "Одежда в плохом состоянии", "Одежда в хорошем состоянии", "Стеклянные банки", "Контейнеры", "Коробки"]
+                var text = "DELETE FROM no2garbage\n WHERE  uuid = '\(user!.uid)';"
+                AddGarbageToBase().add(text: text) { (isTrue) in
+                    self.presentationMode.wrappedValue.dismiss()
+                    
+                    let date = Date()
+                    
+                    for i in 0...category.count-1{
+                        text = "insert into no2garbage (uuid, date, category, amount)\n VALUES ('\(user!.uid)', date('\(date.get(.month))/\(date.get(.day))/\(date.get(.year))'), '\(category[i])', 1);"
+                        
+                        AddGarbageToBase().add(text: text) { (isTrue) in
+                            print(isTrue)
+                        }
+                    }
+                }
+                
             }.padding(.top, 30)
             
-
+            
             
             Button("Удалить аккаунт"){
                 self.showingActionSheet = true
@@ -64,18 +78,22 @@ struct ProfileHost: View {
             .actionSheet(isPresented: $showingActionSheet) {
                 ActionSheet(title: Text("Вы точно хотите удалить аккаунт?"), message: Text("Удалится вся ваша статистика. Это действие будет не отменить!"), buttons: [
                     .destructive(Text("Удалить")) {
-                        database.delUser(uid: user!.uid)
-                        self.presentationMode.wrappedValue.dismiss()
-                        Auth.auth().currentUser?.delete(completion: { (error) in
-                            print(error)
-                        })
-                        
+                        let text = "DELETE FROM no2garbage\n WHERE  uuid = '\(user!.uid)';"
+                        AddGarbageToBase().add(text: text) { (isTrue) in
+                            
+                            database.delUser(uid: user!.uid)
+                            Auth.auth().currentUser?.delete(completion: { (error) in
+                                print(error)
+                                self.presentationMode.wrappedValue.dismiss()
+                                self.presentationMode.wrappedValue.dismiss()
+                            })
+                        }
                     },
                     .cancel()
                 ])
             }
             
-
+            
             
             Button("Выйти") {
                 let firebaseAuth = Auth.auth()

@@ -34,7 +34,8 @@ struct Statistics: View {
             .clipped()
             .onTapGesture {
                 if (user != nil){
-                    GetFromSQL().getSQLStatistics(uuid: user!.uid, category: category[selected]) { (res) in
+                    let text = "SELECT * FROM no2garbage WHERE uuid = '\(user!.uid)' AND category = '\(category[selected])' order by date desc;"
+                    GetFromSQL().getSQLStatistics(text: text) { (res) in
                         result.removeAll()
                         result = res
                     }

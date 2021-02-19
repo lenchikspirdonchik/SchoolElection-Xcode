@@ -8,7 +8,7 @@
 import Foundation
 import PostgresClientKit
 class GetFromSQL {
-    func getSQLStatistics(uuid:String, category:String, completion: @escaping ([String]) -> Void) {
+    func getSQLStatistics(text:String, completion: @escaping ([String]) -> Void) {
         var result: [String] = []
         do {
             var configuration = PostgresClientKit.ConnectionConfiguration()
@@ -19,8 +19,6 @@ class GetFromSQL {
             
             let connection = try PostgresClientKit.Connection(configuration: configuration)
             defer { connection.close() }
-            
-            let text = "SELECT * FROM no2garbage WHERE uuid = '\(uuid)' AND category = '\(category)' order by date desc;"
             let statement = try connection.prepareStatement(text: text)
             defer { statement.close() }
             
