@@ -6,46 +6,33 @@
 //
 
 import SwiftUI
-import FirebaseStorage
 struct CircleImage: View {
     var image:String
     @State var imageI:[UIImage] = [UIImage(imageLiteralResourceName: "logo")]
     var body: some View {
         
-        
-        if #available(iOS 14.0, *) {
-            GeometryReader{ proxy in
-                VStack{
-                    TabView{
-                        
-                        ForEach (imageI, id: \.self){myUiImage in
-                            Image(uiImage: myUiImage)
-                                .resizable()
-                                .scaledToFill()
-                                .clipShape(Circle())
-                                .overlay(Circle().stroke(Color.white, lineWidth: 4))
-                                .shadow(radius: 10)
-                                .frame(width: 200, height: 200, alignment: .center)
-                            
-                        }
+        GeometryReader{ proxy in
+            VStack{
+                TabView{
+                    ForEach (imageI, id: \.self){myUiImage in
+                        Image(uiImage: myUiImage)
+                            .resizable()
+                            .scaledToFill()
+                            .clipShape(Circle())
+                            .overlay(Circle().stroke(Color.white, lineWidth: 4))
+                            .shadow(radius: 10)
+                            .frame(width: 200, height: 200, alignment: .center)
                     }
-                    .tabViewStyle(PageTabViewStyle())
-                    .padding()
-                    
                 }
-            }.onAppear{
-                GetPhoto().getPhoto(path: image) { (image) in
-                    imageI = image
-                }
+                .tabViewStyle(PageTabViewStyle())
+                .padding()    
             }
-        } else {
-            // Fallback on earlier versions
+        }.onAppear{
+            GetPhoto().getPhoto(path: image) { (image) in
+                imageI = image
+                
+            }
         }
-        
-        
-        
-        
-        
     }
 }
 

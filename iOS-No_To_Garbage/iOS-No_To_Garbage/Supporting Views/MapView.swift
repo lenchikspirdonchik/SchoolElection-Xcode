@@ -14,6 +14,10 @@ struct MapView: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: MKMapView, context: Context) {
+        if (resArray.isEmpty){
+            print("Waiting...")
+        }
+        else{
         let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
         let region = MKCoordinateRegion(center: resArray[0].0, span: span)
         uiView.setRegion(region, animated: true)
@@ -26,7 +30,7 @@ struct MapView: UIViewRepresentable {
             uiView.addAnnotation(annotation)
             
         }
-        
+        }
         
     }
 }
