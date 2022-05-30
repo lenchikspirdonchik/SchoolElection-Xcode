@@ -51,7 +51,8 @@
 		84FDFB8C257429F5000B1F67 /* AddgarbageToBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FDFB8B257429F5000B1F67 /* AddgarbageToBase.swift */; };
 		84FF81C9257828C900DE8A7C /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF81C8257828C900DE8A7C /* Statistics.swift */; };
 		B052A5E025BCA89A00770AA3 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = B052A5DF25BCA89A00770AA3 /* Test.swift */; };
-		E5921D452514D54D955831EA /* Pods_iOS_No_To_Garbage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A468EAEBA5D77A9CFDF6ED8D /* Pods_iOS_No_To_Garbage.framework */; };
+		CE802D3CC4E84DA3FA3A1491 /* Pods_WidgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE20468B6AD271E0A4F18CB8 /* Pods_WidgetExtension.framework */; };
+		FF1D2A0748CA8AF22062B5E0 /* Pods_iOS_No_To_Garbage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C85D208EE3F5E5D34956A04 /* Pods_iOS_No_To_Garbage.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,8 +80,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0ADE1C54C043E2A894214567 /* Pods-iOS-No_To_Garbage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-No_To_Garbage.debug.xcconfig"; path = "Target Support Files/Pods-iOS-No_To_Garbage/Pods-iOS-No_To_Garbage.debug.xcconfig"; sourceTree = "<group>"; };
-		668BEED6F82631ACA65182CB /* Pods-iOS-No_To_Garbage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-No_To_Garbage.release.xcconfig"; path = "Target Support Files/Pods-iOS-No_To_Garbage/Pods-iOS-No_To_Garbage.release.xcconfig"; sourceTree = "<group>"; };
+		0731395B5C2D8BEB73580CFA /* Pods-WidgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WidgetExtension.release.xcconfig"; path = "Target Support Files/Pods-WidgetExtension/Pods-WidgetExtension.release.xcconfig"; sourceTree = "<group>"; };
 		840E324F2567105B002B2DBF /* CategoryOther.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryOther.swift; sourceTree = "<group>"; };
 		840E3256256713CE002B2DBF /* AddGarbage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGarbage.swift; sourceTree = "<group>"; };
 		8410ADCC25A1275000928AA8 /* AllGarbageMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGarbageMap.swift; sourceTree = "<group>"; };
@@ -123,8 +123,12 @@
 		84FCEBAF2548BEFD00A6564B /* ProfileHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHost.swift; sourceTree = "<group>"; };
 		84FDFB8B257429F5000B1F67 /* AddgarbageToBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddgarbageToBase.swift; sourceTree = "<group>"; };
 		84FF81C8257828C900DE8A7C /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
-		A468EAEBA5D77A9CFDF6ED8D /* Pods_iOS_No_To_Garbage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_No_To_Garbage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C85D208EE3F5E5D34956A04 /* Pods_iOS_No_To_Garbage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_No_To_Garbage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E388AFBF456A59795D72FCF /* Pods-iOS-No_To_Garbage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-No_To_Garbage.debug.xcconfig"; path = "Target Support Files/Pods-iOS-No_To_Garbage/Pods-iOS-No_To_Garbage.debug.xcconfig"; sourceTree = "<group>"; };
 		B052A5DF25BCA89A00770AA3 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		D637F9265FF59726FC6033C8 /* Pods-WidgetExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WidgetExtension.debug.xcconfig"; path = "Target Support Files/Pods-WidgetExtension/Pods-WidgetExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		DC883A4432D64BABE7C8DE90 /* Pods-iOS-No_To_Garbage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS-No_To_Garbage.release.xcconfig"; path = "Target Support Files/Pods-iOS-No_To_Garbage/Pods-iOS-No_To_Garbage.release.xcconfig"; sourceTree = "<group>"; };
+		FE20468B6AD271E0A4F18CB8 /* Pods_WidgetExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WidgetExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,7 @@
 			files = (
 				8452C46D25C497D100F34393 /* SwiftUI.framework in Frameworks */,
 				8452C46B25C497D100F34393 /* WidgetKit.framework in Frameworks */,
+				CE802D3CC4E84DA3FA3A1491 /* Pods_WidgetExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,8 +148,8 @@
 			files = (
 				841C9604257977C700ACF671 /* SwiftUICharts in Frameworks */,
 				8406B60525782D5900E110AE /* SunburstDiagram in Frameworks */,
-				E5921D452514D54D955831EA /* Pods_iOS_No_To_Garbage.framework in Frameworks */,
 				8418320225DC586500908C6A /* PostgresClientKit in Frameworks */,
+				FF1D2A0748CA8AF22062B5E0 /* Pods_iOS_No_To_Garbage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,9 +159,10 @@
 		4360413829F89A6A4660552A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A468EAEBA5D77A9CFDF6ED8D /* Pods_iOS_No_To_Garbage.framework */,
 				8452C46A25C497D100F34393 /* WidgetKit.framework */,
 				8452C46C25C497D100F34393 /* SwiftUI.framework */,
+				FE20468B6AD271E0A4F18CB8 /* Pods_WidgetExtension.framework */,
+				8C85D208EE3F5E5D34956A04 /* Pods_iOS_No_To_Garbage.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -293,8 +299,10 @@
 		9EAB02E1E1F56A30BB558FC6 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0ADE1C54C043E2A894214567 /* Pods-iOS-No_To_Garbage.debug.xcconfig */,
-				668BEED6F82631ACA65182CB /* Pods-iOS-No_To_Garbage.release.xcconfig */,
+				D637F9265FF59726FC6033C8 /* Pods-WidgetExtension.debug.xcconfig */,
+				0731395B5C2D8BEB73580CFA /* Pods-WidgetExtension.release.xcconfig */,
+				8E388AFBF456A59795D72FCF /* Pods-iOS-No_To_Garbage.debug.xcconfig */,
+				DC883A4432D64BABE7C8DE90 /* Pods-iOS-No_To_Garbage.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -306,6 +314,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8452C47D25C497D300F34393 /* Build configuration list for PBXNativeTarget "WidgetExtension" */;
 			buildPhases = (
+				52397162601AD832DE4214F9 /* [CP] Check Pods Manifest.lock */,
 				8452C46525C497D100F34393 /* Sources */,
 				8452C46625C497D100F34393 /* Frameworks */,
 				8452C46725C497D100F34393 /* Resources */,
@@ -323,12 +332,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84D8E4D4253CD00B00E0398A /* Build configuration list for PBXNativeTarget "iOS-No_To_Garbage" */;
 			buildPhases = (
-				4BC63ABB3DA7D8D36753B22C /* [CP] Check Pods Manifest.lock */,
+				88BE72C0798FFBD9E4E349E6 /* [CP] Check Pods Manifest.lock */,
 				84D8E4B9253CD00A00E0398A /* Sources */,
 				84D8E4BA253CD00A00E0398A /* Frameworks */,
 				84D8E4BB253CD00A00E0398A /* Resources */,
-				4A06FD21A4703B5568C18ABF /* [CP] Embed Pods Frameworks */,
 				8452C47A25C497D300F34393 /* Embed App Extensions */,
+				70D44BC70FAF3C7AA4FD1154 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -372,7 +381,7 @@
 			);
 			mainGroup = 84D8E4B4253CD00A00E0398A;
 			packageReferences = (
-				8406B60325782D5900E110AE /* XCRemoteSwiftPackageReference "SwiftSunburstDiagram" */,
+				8406B60325782D5900E110AE /* XCRemoteSwiftPackageReference "SwiftSunburstDiagram.git" */,
 				841C9602257977C700ACF671 /* XCRemoteSwiftPackageReference "ChartView" */,
 				8418320025DC586500908C6A /* XCRemoteSwiftPackageReference "PostgresClientKit" */,
 			);
@@ -409,7 +418,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4A06FD21A4703B5568C18ABF /* [CP] Embed Pods Frameworks */ = {
+		52397162601AD832DE4214F9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WidgetExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		70D44BC70FAF3C7AA4FD1154 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -426,7 +457,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iOS-No_To_Garbage/Pods-iOS-No_To_Garbage-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4BC63ABB3DA7D8D36753B22C /* [CP] Check Pods Manifest.lock */ = {
+		88BE72C0798FFBD9E4E349E6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -522,6 +553,7 @@
 /* Begin XCBuildConfiguration section */
 		8452C47B25C497D300F34393 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D637F9265FF59726FC6033C8 /* Pods-WidgetExtension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
@@ -544,6 +576,7 @@
 		};
 		8452C47C25C497D300F34393 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0731395B5C2D8BEB73580CFA /* Pods-WidgetExtension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
@@ -619,6 +652,9 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"\"-Xlinker -interposable\"",
+				);
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -673,6 +709,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = (
+					"\"-Xlinker -interposable\"",
+				);
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -682,7 +721,7 @@
 		};
 		84D8E4D5253CD00B00E0398A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0ADE1C54C043E2A894214567 /* Pods-iOS-No_To_Garbage.debug.xcconfig */;
+			baseConfigurationReference = 8E388AFBF456A59795D72FCF /* Pods-iOS-No_To_Garbage.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -706,7 +745,7 @@
 		};
 		84D8E4D6253CD00B00E0398A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 668BEED6F82631ACA65182CB /* Pods-iOS-No_To_Garbage.release.xcconfig */;
+			baseConfigurationReference = DC883A4432D64BABE7C8DE90 /* Pods-iOS-No_To_Garbage.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -761,7 +800,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		8406B60325782D5900E110AE /* XCRemoteSwiftPackageReference "SwiftSunburstDiagram" */ = {
+		8406B60325782D5900E110AE /* XCRemoteSwiftPackageReference "SwiftSunburstDiagram.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/lludo/SwiftSunburstDiagram.git";
 			requirement = {
@@ -790,7 +829,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		8406B60425782D5900E110AE /* SunburstDiagram */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8406B60325782D5900E110AE /* XCRemoteSwiftPackageReference "SwiftSunburstDiagram" */;
+			package = 8406B60325782D5900E110AE /* XCRemoteSwiftPackageReference "SwiftSunburstDiagram.git" */;
 			productName = SunburstDiagram;
 		};
 		8418320125DC586500908C6A /* PostgresClientKit */ = {

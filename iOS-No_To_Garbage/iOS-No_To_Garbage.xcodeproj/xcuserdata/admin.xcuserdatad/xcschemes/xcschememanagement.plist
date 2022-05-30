@@ -7,9 +7,9 @@
 		<key>WidgetExtension.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>17</integer>
+			<integer>23</integer>
 		</dict>
-		<key>iOS-No_To_Garbage.xcscheme_^#shared#^_</key>
+		<key>iOS-No_To_Garbage.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>

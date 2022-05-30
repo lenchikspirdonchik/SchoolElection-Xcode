@@ -39,15 +39,12 @@ struct GarbageDetail: View {
             
             
             CircleImage(image: garbage)
-                .offset(x: 0, y: -60)
-                .padding(.bottom, -70)
+                .offset(y: -80)
+                .frame(height: 300)
             
-            
+            VStack() {
             Text(garbage)
                 .font(.title)
-                .padding(.top, 140)
-            
-            
             Text(result)
                 .font(.subheadline)
                 .onAppear {
@@ -56,7 +53,7 @@ struct GarbageDetail: View {
                     }
                 }
                 .padding()
-            
+            }.offset(y: -120)
             
         }.padding(.top, -20)
         
@@ -68,8 +65,7 @@ struct GarbageDetail: View {
 
 struct GarbageDetail_Previews: PreviewProvider {
     static var previews: some View {
-        
-        GarbageDetail(garbage: "Коробки")
+        GarbageDetail(garbage: "Бутылки")
     }
 }
 

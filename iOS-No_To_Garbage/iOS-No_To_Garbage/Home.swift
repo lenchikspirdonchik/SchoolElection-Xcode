@@ -20,9 +20,6 @@ struct CategoryHome: View {
     }
     var body: some View {
         
-        
-        
-        
         let mainCategory: [String] = ["Кухня","Ванная", "Гардеробная", "Кабинет"]
         NavigationView {
             List {

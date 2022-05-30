@@ -7,18 +7,19 @@
 
 import Foundation
 import FirebaseStorage
-class GetPhoto{
-    
-    func setPhoto(path:String, image:UIImage, completion: @escaping (Bool) -> Void) {
+
+class GetPhoto {
+
+    func setPhoto(path: String, image: UIImage, completion: @escaping (Bool) -> Void) {
         let storage = Storage.storage()
         let storageRef = storage.reference()
         var realPath = path
-        if path == "Бутылки "{
+        if path == "Бутылки " {
             realPath = "Бутылки"
         }
         let rand = Int.random(in: 1000000...9999999)
         let imageref = storageRef.child("Garbage").child(realPath).child("\(String(rand)).jpeg")
-        let data =  image.jpegData(compressionQuality: 0.5)
+        let data = image.jpegData(compressionQuality: 0.5)
         let metaDataForImage = StorageMetadata()
         metaDataForImage.contentType = "image/jpeg"
         imageref.putData(data!, metadata: metaDataForImage) { (metadata, error) in
@@ -28,46 +29,47 @@ class GetPhoto{
                 return
             }
             completion(true)
-            
+
         }
-        
-        
-        
+
+
     }
-    
-    func getPhoto(path:String, completion: @escaping ([UIImage]) -> Void) {
+
+    func getPhoto(path: String, completion: @escaping ([UIImage]) -> Void) {
         let storage = Storage.storage()
         let storageRef = storage.reference()
         var realPath = path
-        if path == "Бутылки "{
+        if path == "Бутылки " {
             realPath = "Бутылки"
         }
-        
+
         let imageref = storageRef.child("Garbage").child(realPath)
         imageref.listAll { (result, error) in
             var number = 0
-            var imageArray:[UIImage] = []
-            
-            for item in result.items {
-                item.getData(maxSize:10240 * 10240) { data, error in
+            var imageArray: [UIImage] = []
+            let imgCounter = (result?.items.count ?? 0)-1
+            if imgCounter>0 {
+            for i in 0 ... imgCounter {
+                let item = result?.items[i]
+                item?.getData(maxSize: 10240 * 10240) { data, error in
                     if let error = error {
                         print(error)
                     } else {
                         let image = UIImage(data: data!)
-                        if image != nil{
+                        if image != nil {
                             imageArray.append(image!)
                             print("imageArray.count = \(imageArray.count)")
-                            number+=1
+                            number += 1
                             completion(imageArray)
                         }
-                        
+
                     }
                 }
-                
+
             }
-            
+            }
         }
-        
-        
+
+
     }
 }

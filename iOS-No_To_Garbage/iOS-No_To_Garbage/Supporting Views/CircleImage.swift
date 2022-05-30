@@ -10,27 +10,26 @@ struct CircleImage: View {
     var image:String
     @State var imageI:[UIImage] = [UIImage(imageLiteralResourceName: "logo")]
     var body: some View {
-        
         GeometryReader{ proxy in
-            VStack{
                 TabView{
-                    ForEach (imageI, id: \.self){myUiImage in
-                        Image(uiImage: myUiImage)
-                            .resizable()
-                            .scaledToFill()
-                            .clipShape(Circle())
-                            .overlay(Circle().stroke(Color.white, lineWidth: 4))
-                            .shadow(radius: 10)
-                            .frame(width: 200, height: 200, alignment: .center)
+                    
+                    ForEach(imageI, id:\.self){imageItem in
+                        Image(uiImage: imageItem)
+                        .resizable()
+                        .scaledToFill()
+                        .clipShape(Circle())
+                        .overlay(Circle().stroke(Color.white, lineWidth: 4))
+                        .shadow(radius: 10)
+                        .frame(width: 250, height: 250, alignment: .center)
                     }
-                }
-                .tabViewStyle(PageTabViewStyle())
-                .padding()    
-            }
+                }.tabViewStyle(PageTabViewStyle())
+                .padding()
+                //.frame(width: 200, height: 200, alignment: .center)
+                //.frame(width: proxy.size.width, height: proxy.size.height / 2)
+            
         }.onAppear{
             GetPhoto().getPhoto(path: image) { (image) in
                 imageI = image
-                
             }
         }
     }
